@@ -4,14 +4,14 @@
 import React from 'react';
 import {Router, Route, browserHistory, IndexRedirect, IndexRoute} from 'react-router';
 
-import App from './App';
+import PageLayout from './PageLayout';
 // import Container from './Container';
 // import Custom from './Custom';
 
 const Routes = (props) => {
     return (
         <Router history={browserHistory}>
-            <Route path="/" component={App}> {/* Page specified by "Route" and "path" */}
+            <Route path="/" component={PageLayout}> {/* Page specified by "Route" and "path" */}
                 {/*<IndexRoute component={App}/> /!* Directive specified by "IndexRoute" *!/*/}
                 {/*<Route path="/custom" component={Custom}/>*/}
             </Route>

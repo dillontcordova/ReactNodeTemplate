@@ -5,7 +5,6 @@ require('babel-core/register')({
 });
 
 const buildPathName = '../build';
-// const buildPathName = '../public';
 
 const http = require('http');
 const path = require('path');
