@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group' // ES6
+import ReactTransitionGroup from 'react-addons-transition-group' // ES6
 // import {Link} from 'react-router';
 
 class PageLayout extends Component {
