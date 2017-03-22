@@ -20,6 +20,7 @@ const RouterContext = reactRouter.RouterContext;
 
 const staticFiles = [
     '/static/*',
+    '/images/*',
     '/logo.svg',
     '/asset-manifest.json',
     '/favicon.ico'
