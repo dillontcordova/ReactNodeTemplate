@@ -3,10 +3,7 @@
  */
 import React from 'react';
 import {Router, Route, browserHistory, IndexRedirect, IndexRoute} from 'react-router';
-
 import PageLayout from './scrollWebsite/PageLayout';
-// import Container from './Container';
-// import Custom from './Custom';
 
 const Routes = (props) => {
     return (

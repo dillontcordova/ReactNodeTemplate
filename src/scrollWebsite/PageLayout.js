@@ -15,6 +15,10 @@ class PageLayout extends Component {
         super(props);
     }
 
+    componentDidMount() {
+
+    }
+
     render() {
         return (
             <div>
@@ -22,7 +26,7 @@ class PageLayout extends Component {
 
                 <Header/>
 
-                <ScrollOver id="services" className="services" always={false}>
+                <ScrollOver id="services" className="services"always={false}>
                     <Services/>
                 </ScrollOver>
 
@@ -38,13 +42,9 @@ class PageLayout extends Component {
                     <Clients/>
                 </ScrollOver>
 
-                <ScrollOver id="contact" className="contact" always={false}>
-                    <Contact/>
-                </ScrollOver>
+                <Contact/>
 
-                <ScrollOver id="footer" className="footer" always={false}>
-                    <Footer/>
-                </ScrollOver>
+                <Footer/>
             </div>
         )
     };

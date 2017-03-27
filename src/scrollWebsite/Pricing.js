@@ -2,10 +2,16 @@
  * Created by dillo_000 on 3/22/2017.
  */
 import React, {Component} from 'react';
+import {TweenMax, TweenLite} from "gsap";
 
 class Pricing extends Component {
-    constructor(_props) {
-        super(_props);
+
+    componentDidMount() {
+        TweenMax.set( '#pricing', {backgroundColor: '#6699cc'});
+        TweenLite.from( '#pricing', 0.5, {y: 100, opacity: 0} );
+    }
+
+    componentWillUnmount() {
     }
 
     render() {
