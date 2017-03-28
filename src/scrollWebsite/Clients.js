@@ -13,6 +13,7 @@ class Clients extends Component {
 
     componentDidMount() {
         TweenMax.set( '#client', {backgroundColor: '#6699cc'});
+        TweenMax.from("#client", .5, {opacity:0});
         TweenMax.staggerFrom(".my-icons", 1, {scale:0.5, opacity:0, delay:0.5, ease: 'Elastic.easeOut'}, 0.2);
     }
 
@@ -23,7 +24,7 @@ class Clients extends Component {
     render() {
         return (
             <div className="container">
-                <div className="row">
+                <div className="row my-skills-icon">
                     <h2>Trusted Skills</h2>
                     <p>
                         Each useful in their own way.

@@ -17,7 +17,6 @@ li {
 
 a {
   text-decoration: none;
-  transition: all 500ms ease-in-out;
 }
 
 a:hover, a:active {
@@ -38,7 +37,6 @@ p {
 
 .btn {
 
-  transition: all 300ms ease-in-out;
   font-weight: 500 !important;
   text-transform: uppercase;
 }
@@ -155,13 +153,9 @@ p {
 
 
 .services i {
-  height: 80px;
-  width: 80px;
-  font-size: 30px;
-  padding: 25px 20px;
-  border-radius: 50%;
-  background-color: #6699cc;
-  color: #fff;
+  font-size: 5em;
+  border-radius: 75%;
+  color: yellow;
 }
 
 
@@ -222,14 +216,11 @@ p {
 
 
 @media(max-width:768px) {
-
   .pricing {
-
     padding: 30px;
   }
 
   .packages {
-
     width: 80%;
     margin-left: 25px;
   }
@@ -281,51 +272,50 @@ p {
 /*CLIENTS*/
 .clients {
   padding: 50px 0 80px;
-  /*background-color: #3399ff;*/
+  /*background-color: #6699cc;*/
   text-align: center;
   color: #fff;
 }
 
 .client h2 {
-
   color: #5e5e5e;
 }
 
 .clients p {
-
   padding-bottom: 40px;
 }
 
 .clients img {
-
   width: 200px;
   opacity: 0.6;
   cursor: pointer;
   margin: 40px 0;
-  transition: all 500ms ease-in-out;
 }
 
 
 .clients li:hover img {
-
   opacity: 1;
 }
 
+
 /*FontIcon*/
-.my-icons {
+.my-skills-icon {
   font-size: 10em;
+}
+@media(max-width:768px) {
+  .my-skills-icon {
+    font-size: 8em;
+  }
 }
 
 
 /*CONTACT*/
 .contact {
-
   padding: 50px 0 80px;
   text-align: center;
 }
 
 .contact p {
-
   padding-bottom: 80px;
   color: #737373;
 }
@@ -368,9 +358,7 @@ p {
 
 
 /*FOOTER*/
-
 .footer {
-
   padding: 30px;
   color: #cccccc;
   background-color: #222222;

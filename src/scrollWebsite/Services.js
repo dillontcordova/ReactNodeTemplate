@@ -27,30 +27,34 @@ class Services extends Component {
                 <h2 className="serviceTitleText">Services</h2>
                 <p className="serviceTitleText">
                     Lorem Ipsum is simply dummy text of the
-                    printing and typesettin dummy text
+                    printing and type setting dummy text
                 </p>
-                <div className="row">
 
+                <div className="row">
                     <div id="row1" className="col-lg-3 col-md-3">
+                        <FontIcon fontClassName='icon-database'/>
                         <h4>Web design</h4>
                         <p>Lorem Ipsum passages, and more recently with desktop publishing software</p>
                     </div>
 
                     <div id="row2" className="col-lg-3 col-md-3">
+                        <FontIcon fontClassName='icon-database'/>
                         <h4>Mobile Apps</h4>
                         <p>Lorem Ipsum passages, and more recently with desktop publishing software</p>
                     </div>
 
                     <div id="row3" className="col-lg-3 col-md-3">
-                        <FontIcon fontClassName="icon-database" color="yellow"/>
+                        <FontIcon fontClassName='icon-database'/>
                         <h4>Database</h4>
                         <p>Lorem Ipsum passages, and more recently with desktop publishing software</p>
                     </div>
 
                     <div id="row4" className="col-lg-3 col-md-3">
+                        <FontIcon fontClassName='icon-database'/>
                         <h4>Consulting</h4>
                         <p>Lorem Ipsum passages, and more recently with desktop publishing software</p>
                     </div>
+
                 </div>
             </div>
         )
