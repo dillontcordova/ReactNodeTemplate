@@ -28,7 +28,7 @@ class Clients extends Component {
                     <h2>Trusted Skills</h2>
                     <p>
                         Each useful in their own way.
-                        All skills that ca be used to further develop your product
+                        All skills that can be used to further develop your product!
                     </p>
                     <FontIcon fontClassName="icon-java" linkUrl="https://www.heroku.com/what"/>
                     <FontIcon fontClassName="icon-cplusplus" linkUrl="http://www.cplusplus.com/info/faq/" color="blue"/>

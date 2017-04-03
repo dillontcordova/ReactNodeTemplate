@@ -16,6 +16,7 @@ class Services extends Component {
         TweenLite.from( '#row2', .75, {scaleX: -1, opacity: 0});
         TweenLite.from( '#row3', 2.5, { ease: 'Elastic.easeOut', easeParams:[1, 0.3], y: -500 });
         TweenLite.from( '#row4', 2, { ease: 'Bounce.easeOut', y: -500, opacity: 0});
+        // TweenLite.to( '#row4', 1, { ease: 'Power3.easeInOut', scaleY: 0, y: '-=100%', opacity: 0});
     }
 
     componentWillUnmount() {
