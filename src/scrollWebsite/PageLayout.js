@@ -16,6 +16,10 @@ class PageLayout extends Component {
         super(props);
     }
 
+    poop = ()=> {
+        console.log('poop');
+    };
+
     componentDidMount() {
 
     }
@@ -27,7 +31,7 @@ class PageLayout extends Component {
 
                 <Header/>
 
-                <ScrollOver id="services" className="services"always={false}>
+                <ScrollOver scrollEvent={this.poop} id="services" className="services"always={false}>
                     <Services/>
                 </ScrollOver>
 
