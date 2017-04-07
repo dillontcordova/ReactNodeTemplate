@@ -7,8 +7,8 @@ import {TweenMax, TweenLite} from "gsap";
 class Pricing extends Component {
 
     componentDidMount() {
-        TweenMax.set( '#pricing', {backgroundColor: '#6699cc'});
-        TweenLite.from( '#pricing', 0.5, {y: 100, opacity: 0} );
+        // TweenMax.set( '#pricing', {backgroundColor: '#6699cc'});
+        // TweenLite.from( '#pricing', 0.5, {y: 100, opacity: 0} );
     }
 
     componentWillUnmount() {
@@ -52,7 +52,7 @@ class Pricing extends Component {
                             <h4>Gold</h4>
                             <h1>TBD</h1>
                             <b>Hourly</b>
-                            <p>A custom web site designed by you!</p>
+                            <p>Custom website designed by you!</p>
                             <li>Website Maintenance</li>
                             <li>Extensive QA testing</li>
                             <li>Includes all of Gold</li>

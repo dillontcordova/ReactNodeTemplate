@@ -10,10 +10,10 @@ class Team extends Component {
     }
 
     componentDidMount() {
-        TweenLite.from( '#team', 1, {y: -300, opacity: 0} );
-
-        TweenLite.set( '#contact', {hidden: false} );
-        TweenLite.from( '#contact', 1, {y: 1000, opacity: 0} );
+        // TweenLite.from( '#team', 1, {y: -300, opacity: 0} );
+        //
+        // TweenLite.set( '#contact', {hidden: false} );
+        // TweenLite.from( '#contact', 1, {y: 1000, opacity: 0} );
     }
 
 

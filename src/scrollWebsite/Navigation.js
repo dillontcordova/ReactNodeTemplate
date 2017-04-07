@@ -2,6 +2,7 @@
  * Created by dillo_000 on 3/22/2017.
  */
 import React, {Component} from 'react';
+import {Link} from 'rc-scroll-anim';
 
 class Navigation extends Component {
     constructor(_props) {

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {OverPack as ScrollOver} from 'rc-scroll-anim';
-
+import WebSection from '../lib/WebSection';
 import Navigation from './Navigation';
 import Header from './Header';
 import Services from './Services';
@@ -10,50 +9,86 @@ import Team from './Team';
 import Clients from './Clients';
 import Contact from './Contact';
 import Footer from './Footer';
+import {TweenMax} from "gsap";
+const ScrollMagic = typeof window !== 'undefined' ? require( 'scrollmagic') : undefined;
 
 class PageLayout extends Component {
     constructor(props) {
         super(props);
     }
 
-    poop = ()=> {
-        console.log('poop');
-    };
-
     componentDidMount() {
+        this.controller = new ScrollMagic.Controller();
+        WebSection.setScrollController(this.controller);
 
+        new ScrollMagic.Scene({triggerElement: '#services'})
+            .setClassToggle('#services', 'fade-in')
+            .addTo(this.controller)
+        ;
+        // new ScrollMagic.Scene({triggerElement: '#projects'})
+        //     .setClassToggle('#projects', 'fade-in')
+        //     .addTo(this.controller)
+        // ;
+        new ScrollMagic.Scene({triggerElement: '#pricing'})
+            .setClassToggle('#pricing', 'fade-in')
+            .addTo(this.controller)
+        ;
+        new ScrollMagic.Scene({triggerElement: '#team'})
+            .setClassToggle('#team', 'fade-in')
+            .addTo(this.controller)
+        ;
+        new ScrollMagic.Scene({triggerElement: '#client'})
+            .setClassToggle('#client', 'fade-in')
+            .addTo(this.controller)
+        ;
+        new ScrollMagic.Scene({triggerElement: '#contact'})
+            .setClassToggle('#contact', 'fade-in')
+            .addTo(this.controller)
+        ;
+        new ScrollMagic.Scene({triggerElement: '#footer'})
+            .setClassToggle('#footer', 'fade-in')
+            .addTo(this.controller)
+        ;
     }
 
     render() {
         return (
             <div>
+
                 <Navigation/>
 
-                <Header/>
+                <section id="header" className="header" >
+                    <Header controller={this.controller}/>
+                </section>
 
-                <ScrollOver scrollEvent={this.poop} id="services" className="services"always={false}>
+                <section id="services" className="services">
                     <Services/>
-                </ScrollOver>
+                </section>
 
-                <ScrollOver id="projects" className="projects"always={false}>
-                    <Projects/>
-                </ScrollOver>
+                {/*<section id="projects" className="projects" >*/}
+                    {/*<Projects/>*/}
+                {/*</section>*/}
 
-                <ScrollOver id="pricing" className="pricing" always={false}>
+                <section id="pricing" className="pricing" >
                     <Pricing/>
-                </ScrollOver>
+                </section>
 
-                <ScrollOver id="team" className="team" always={false}>
+                <section id="team" className="team"  >
                     <Team/>
-                </ScrollOver>
+                </section>
 
-                <ScrollOver id="client" className="clients" always={false}>
+                <section id="client" className="clients" >
                     <Clients/>
-                </ScrollOver>
+                </section>
 
-                <Contact/>
+                <section id="contact" className="contact" >
+                    <Contact/>
+                </section>
 
-                <Footer/>
+                <section id="footer" className="footer" >
+                    <Footer/>
+                </section>
+
             </div>
         )
     };

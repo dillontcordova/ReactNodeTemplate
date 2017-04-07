@@ -1,0 +1,65 @@
+/*PRICING*/
+.pricing {
+    padding: 50px 0 80px;
+    text-align: center;
+    background-color: cornflowerblue;
+    opacity: 0;
+    transition: all 1s ease-out;
+}
+.pricing.fade-in {
+    opacity: 1;
+}
+
+
+.pricing h2,
+.pricing p {
+    color: #fff;
+}
+
+.pricing p {
+    padding-bottom: 40px;
+}
+
+.pricing .packages {
+    padding: 30px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+.packages li {
+    display: block;
+    padding: 5px;
+}
+
+.packages h4,
+.packages h1,
+.packages b {
+
+    color: #4c4c4c;
+}
+
+.packages p,
+.packages li {
+
+    color: #737373;
+}
+
+.packages button {
+
+    margin-top: 10px;
+}
+
+
+
+@media(max-width:768px) {
+    .pricing {
+        padding: 30px;
+    }
+
+    .packages {
+        width: 80%;
+        margin-left: 25px;
+    }
+}

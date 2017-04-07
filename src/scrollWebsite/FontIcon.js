@@ -4,9 +4,6 @@
 import React, {Component} from 'react';
 
 class FontIcon extends Component {
-    constructor(_props) {
-        super(_props);
-    }
 
     render() {
         let fontElement = <i className={this.props.fontClassName} style={{color: this.props.color}}/>;
