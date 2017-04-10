@@ -2,7 +2,6 @@
  * Created by dillo_000 on 3/22/2017.
  */
 import React, {Component} from 'react';
-import {TweenMax} from 'gsap';
 import FontIcon from './FontIcon';
 
 class Clients extends Component {

@@ -4,9 +4,6 @@
 import React, {Component} from 'react';
 
 class Contact extends Component {
-    constructor(_props) {
-        super(_props);
-    }
 
     render() {
         return (

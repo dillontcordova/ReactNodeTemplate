@@ -2,7 +2,7 @@
  * Created by dillo_000 on 2/23/2017.
  */
 import React from 'react';
-import {Router, Route, browserHistory, IndexRedirect, IndexRoute} from 'react-router';
+import {Router, Route, browserHistory, IndexRedirect/*, IndexRoute*/} from 'react-router';
 import PageLayout from './scrollWebsite/PageLayout';
 
 const Routes = (props) => {

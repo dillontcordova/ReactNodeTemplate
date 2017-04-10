@@ -2,12 +2,8 @@
  * Created by dillo_000 on 3/22/2017.
  */
 import React, {Component} from 'react';
-import {TweenLite} from "gsap";
 
 class Team extends Component {
-    constructor(_props) {
-        super(_props);
-    }
 
     componentDidMount() {
         // TweenLite.from( '#team', 1, {y: -300, opacity: 0} );

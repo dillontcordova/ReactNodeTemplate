@@ -2,13 +2,12 @@
  * Created by dillo_000 on 3/22/2017.
  */
 import React, {Component} from 'react';
-import {TweenLite} from "gsap";
 
 class Header extends Component {
 
     componentDidMount() {
-        TweenLite.from( '#left', 2, { ease: 'Bounce.easeOut', y: 500, opacity: 0});
-        TweenLite.from( '#right', 2, { ease: 'Bounce.easeOut', y: -500, opacity: 0});
+        // TweenLite.from( '#left', 2, { ease: 'Bounce.easeOut', y: 500, opacity: 0});
+        // TweenLite.from( '#right', 2, { ease: 'Bounce.easeOut', y: -500, opacity: 0});
     }
 
     render() {

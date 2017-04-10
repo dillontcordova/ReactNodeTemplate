@@ -2,8 +2,8 @@
  * Created by dillo_000 on 4/7/2017.
  */
 import React, {Component} from 'react';
-import {TweenMax} from "gsap";
-const ScrollMagic = typeof window !== 'undefined' ? require( 'scrollmagic') : undefined;
+// import {TweenMax} from "gsap";
+// const ScrollMagic = typeof window !== 'undefined' ? require( 'scrollmagic') : undefined;
 
 class WebSection extends Component {
     constructor(props) {

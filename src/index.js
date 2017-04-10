@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Routes from './routes';
-import './css/App.css';
+import './css/defaults.css';
 import './css/navigation.css';
 import './css/header.css';
 import './css/services.css';

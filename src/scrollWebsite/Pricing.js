@@ -2,7 +2,6 @@
  * Created by dillo_000 on 3/22/2017.
  */
 import React, {Component} from 'react';
-import {TweenMax, TweenLite} from "gsap";
 
 class Pricing extends Component {
 

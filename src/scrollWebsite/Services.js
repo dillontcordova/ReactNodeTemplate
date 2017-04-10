@@ -2,18 +2,36 @@
  * Created by dillo_000 on 3/17/2017.
  */
 import React, {Component} from 'react';
-import WebSection from '../lib/WebSection';
-import {TweenLite} from "gsap";
+import Magic from '../lib/Magic';
 import FontIcon from './FontIcon';
-const ScrollMagic = typeof window !== 'undefined' ? require( 'scrollmagic') : undefined;
 
-class Services extends WebSection {
+class Services extends Component {
+
+    constructor(_props) {
+        super(_props);
+        this.spinRefs = [];
+        this.fadeRefs = [];
+    }
+
+    addSpinInRef = (_ref) => {
+        this.spinRefs.push(_ref);
+    };
+
+    addFadeInRef = (_ref) => {
+        Magic.animateElement(_ref, 'fade-in');
+
+        // let ctrl = Magic.getController();
+        // Magic.getNewScene({triggerElement: _ref})
+        // // new Scene({triggerElement: _item})
+        //     .setClassToggle(_ref, 'fade-in')
+        //     // .setTween( TweenLite.from( _ref, 1, {scaleY: -1, opacity: 0} ) )
+        //     .addTo( ctrl )
+        // ;
+    };
 
     componentDidMount() {
-        // new ScrollMagic.Scene({triggerElement: '#services'})
-        //     .setClassToggle('#services', 'fade-in')
-        //     .addTo(this.controller)
-        // ;
+
+
         // "[id^='brick']" // if you have services that increase based on number eg. services1, services2 ...
         // TweenLite.from( '#services', 0.5, {y: 100, opacity: 0} );
         // TweenLite.from( '.serviceTitleText', 2, {y: 100, opacity: 0} );
@@ -38,13 +56,13 @@ class Services extends WebSection {
                         printing and type setting dummy text
                     </p>
 
-                    <div id="row1" className="col-lg-3 col-md-3">
+                    <div ref={this.addFadeInRef}  id="poop" className="col-lg-3 col-md-3">
                         <FontIcon fontClassName='icon-database'/>
                         <h4>Web design</h4>
                         <p>Lorem Ipsum passages, and more recently with desktop publishing software</p>
                     </div>
 
-                    <div id="row2" className="col-lg-3 col-md-3">
+                    <div ref={this.addFadeInRef} id="row2" className="col-lg-3 col-md-3">
                         <FontIcon fontClassName='icon-database'/>
                         <h4>Mobile Apps</h4>
                         <p>Lorem Ipsum passages, and more recently with desktop publishing software</p>
