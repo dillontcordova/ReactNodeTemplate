@@ -17,23 +17,46 @@ class Magic {
     }
 
 
-    static animateElementWithCss(_element, _cssClass) {
-        let scene = new ScrollMagic.Scene({triggerElement: _element});
+
+    static animateElementWithCss(_element, _cssClass, _triggerElement) {
+        let scene = new ScrollMagic.Scene({
+            triggerElement: _triggerElement || _element,
+            reverse: false
+        });
         scene.setClassToggle(_element, _cssClass);
         process.env.NODE_ENV === 'development' && scene.addIndicators();
         scene.addTo( this.getController() );
     }
-    static animateElementWithTweenFrom(_element, _duration, _tweenObj) {
-        let scene = new ScrollMagic.Scene({triggerElement: _element});
+
+    static animateElementWithTweenFrom(_element, _duration, _tweenObj, _triggerElement) {
+        let scene = new ScrollMagic.Scene({
+            triggerElement: _triggerElement || _element,
+            reverse: false
+        });
         scene.setTween( TweenMax.from( _element, _duration, _tweenObj ));
         process.env.NODE_ENV === 'development' && scene.addIndicators();
         scene.addTo( this.getController() );
     }
-    static animateElementWithTweenTo(_element, _duration, _tweenObj) {
-        let scene = new ScrollMagic.Scene({triggerElement: _element});
+
+    static animateElementWithTweenTo(_element, _duration, _tweenObj, _triggerElement) {
+        let scene = new ScrollMagic.Scene({
+            triggerElement: _triggerElement || _element,
+            reverse: false
+        });
         scene.setTween( TweenMax.to( _element, _duration, _tweenObj ));
         process.env.NODE_ENV === 'development' && scene.addIndicators();
         scene.addTo( this.getController() );
     }
+
+    static animateElementWithTweenStagger(_element, _duration, _tweenObj, _triggerElement) {
+        let scene = new ScrollMagic.Scene({
+            triggerElement: _triggerElement || _element,
+            reverse: false
+        });
+        scene.setTween( TweenMax.staggerFrom(_element, _duration, _tweenObj, .25) );
+        process.env.NODE_ENV === 'development' && scene.addIndicators();
+        scene.addTo( this.getController() );
+    }
+
 }
 export default Magic;

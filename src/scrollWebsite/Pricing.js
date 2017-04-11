@@ -2,27 +2,45 @@
  * Created by dillo_000 on 3/22/2017.
  */
 import React, {Component} from 'react';
+import Magic from '../lib/Magic';
 
 class Pricing extends Component {
 
-    componentDidMount() {
-        // TweenMax.set( '#pricing', {backgroundColor: '#6699cc'});
-        // TweenLite.from( '#pricing', 0.5, {y: 100, opacity: 0} );
+    constructor(_props) {
+        super(_props);
+        this.textRefs = [];
+        this.componentRefs = [];
+        this.triggerElement = null;
     }
 
-    componentWillUnmount() {
+    getTrigger = (_ref) => {
+        this.triggerElement = _ref;
+    };
+
+    addTextRef = (_ref) => {
+        this.textRefs.push(_ref);
+    };
+
+    addComponentRef = (_ref) => {
+        this.componentRefs.push(_ref);
+    };
+
+    componentDidMount() {
+        Magic.animateElementWithTweenFrom(this.textRefs, 1, { opacity: 0, scaleX: -1, y: 500}, this.triggerElement );
+        Magic.animateElementWithTweenStagger(this.componentRefs, 1, {scale: 0.5, opacity: 0, delay: 0.5, ease: 'Elastic.easeOut', force3D: true}, this.triggerElement );
     }
 
     render() {
         return (
-            <div className="container">
+            <div ref={this.getTrigger} className="container">
                 <div className="row">
-                    <h2>Pricing</h2>
-                    <p>
+                    <h2 ref={this.addTextRef} >Pricing</h2>
+                    <p ref={this.addTextRef} >
                         orem Ipsum passages, and more recently with
                         desktop publishing software
                     </p>
-                    <div className="col-lg-4 col-md-4">
+
+                    <div ref={this.addComponentRef} className="col-lg-4 col-md-4">
                         <div className="packages">
                             <h4>Bronze</h4>
                             <h1>499.99</h1>
@@ -34,7 +52,8 @@ class Pricing extends Component {
                             <button className="btn btn-success">Get Started</button>
                         </div>
                     </div>
-                    <div className="col-lg-4 col-md-4">
+
+                    <div ref={this.addComponentRef} className="col-lg-4 col-md-4">
                         <div className="packages">
                             <h4>Silver</h4>
                             <h1>849.99</h1>
@@ -46,7 +65,8 @@ class Pricing extends Component {
                             <button className="btn btn-success">Get Started</button>
                         </div>
                     </div>
-                    <div className="col-lg-4 col-md-4">
+
+                    <div ref={this.addComponentRef} className="col-lg-4 col-md-4">
                         <div className="packages">
                             <h4>Gold</h4>
                             <h1>TBD</h1>

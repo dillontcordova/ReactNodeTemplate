@@ -13,34 +13,7 @@ import Footer from './Footer';
 
 class PageLayout extends Component {
 
-    componentDidMount() {
-/*
-        new Scene({triggerElement: '#projects'})
-            .setClassToggle('#projects', 'fade-in')
-            .addTo(controller)
-        ;
-        new Scene({triggerElement: '#pricing'})
-            .setClassToggle('#pricing', 'fade-in')
-            .addTo(controller)
-        ;
-        new Scene({triggerElement: '#team'})
-            .setClassToggle('#team', 'fade-in')
-            .addTo(controller)
-        ;
-        new Scene({triggerElement: '#client'})
-            .setClassToggle('#client', 'fade-in')
-            .addTo(controller)
-        ;
-        new Scene({triggerElement: '#contact'})
-            .setClassToggle('#contact', 'fade-in')
-            .addTo(controller)
-        ;
-        new Scene({triggerElement: '#footer'})
-            .setClassToggle('#footer', 'fade-in')
-            .addTo(controller)
-        ;
-*/
-    }
+    componentDidMount() {}
 
     render() {
 

@@ -2,13 +2,7 @@
 .contact {
     padding: 50px 0 80px;
     text-align: center;
-    opacity: 0;
-    transition: all 1s ease-out;
 }
-.contact.fade-in {
-    opacity: 1;
-}
-
 
 .contact p {
     padding-bottom: 80px;

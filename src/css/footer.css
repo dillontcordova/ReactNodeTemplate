@@ -3,13 +3,7 @@
     padding: 30px;
     color: #cccccc;
     background-color: #222222;
-    opacity: 0;
-    transition: all 1s ease-out;
 }
-.footer.fade-in {
-    opacity: 1;
-}
-
 
 .footer .social {
 

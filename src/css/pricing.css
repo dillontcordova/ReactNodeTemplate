@@ -3,13 +3,7 @@
     padding: 50px 0 80px;
     text-align: center;
     background-color: cornflowerblue;
-    opacity: 0;
-    transition: all 1s ease-out;
 }
-.pricing.fade-in {
-    opacity: 1;
-}
-
 
 .pricing h2,
 .pricing p {
