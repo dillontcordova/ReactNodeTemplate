@@ -1,43 +1,39 @@
-import {TweenMax, TweenLite, TimelineMax} from "gsap";
-const ScrollMagic = typeof window !== 'undefined' ? require( 'scrollmagic') : undefined;
-if(typeof window !== 'undefined') {
-    // require('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js');
+/* eslint-disable */
+if(typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
+    window.ScrollMagic = require('scrollmagic');
+    require('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js');
+    require('scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js');
 }
 
-let instance = null;
 class Magic {
-
     constructor() {
-        if(!instance) {
-            throw new Error('Can\'t instantiate singleton Magic Class without get instance');
-        }
-        this.controller = new ScrollMagic.Controller();
+        throw new Error('!Can\'t instantiate static Magic Class!');
     }
-
-    static getInstance() {
-        instance = Magic.prototype.instance;
-        if(!instance) {
-            instance = true;
-            instance = Magic.prototype.instance = new Magic();
-        }
-        return instance;
-    }
-
     static getController() {
-        return this.getInstance().controller;
+        return Magic.prototype.controller || ( Magic.prototype.controller = new ScrollMagic.Controller() );
+    }
+    static getNewScene(_sceneObj) {
+        return new ScrollMagic.Scene(_sceneObj);
     }
 
-    static getNewScene(_obj) {
-        return new ScrollMagic.Scene(_obj);
-    }
 
-    static animateElement(_element, _cssClass) {
-        new ScrollMagic.Scene({triggerElement: _element})
-            .setClassToggle(_element, _cssClass)
-            // .setTween( TweenLite.from( _element, 1, {scaleY: -1, opacity: 0} ) )
-            .addTo( this.getInstance().controller )
-        ;
+    static animateElementWithCss(_element, _cssClass) {
+        let scene = new ScrollMagic.Scene({triggerElement: _element});
+        scene.setClassToggle(_element, _cssClass);
+        process.env.NODE_ENV === 'development' && scene.addIndicators();
+        scene.addTo( this.getController() );
+    }
+    static animateElementWithTweenFrom(_element, _duration, _tweenObj) {
+        let scene = new ScrollMagic.Scene({triggerElement: _element});
+        scene.setTween( TweenMax.from( _element, _duration, _tweenObj ));
+        process.env.NODE_ENV === 'development' && scene.addIndicators();
+        scene.addTo( this.getController() );
+    }
+    static animateElementWithTweenTo(_element, _duration, _tweenObj) {
+        let scene = new ScrollMagic.Scene({triggerElement: _element});
+        scene.setTween( TweenMax.to( _element, _duration, _tweenObj ));
+        process.env.NODE_ENV === 'development' && scene.addIndicators();
+        scene.addTo( this.getController() );
     }
 }
-
 export default Magic;

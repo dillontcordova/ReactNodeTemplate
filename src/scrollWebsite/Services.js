@@ -18,20 +18,13 @@ class Services extends Component {
     };
 
     addFadeInRef = (_ref) => {
-        Magic.animateElement(_ref, 'fade-in');
-
-        // let ctrl = Magic.getController();
-        // Magic.getNewScene({triggerElement: _ref})
-        // // new Scene({triggerElement: _item})
-        //     .setClassToggle(_ref, 'fade-in')
-        //     // .setTween( TweenLite.from( _ref, 1, {scaleY: -1, opacity: 0} ) )
-        //     .addTo( ctrl )
-        // ;
+        // Math.random(1).toFixed(1)-0
+        // Magic.animateElementWithCss(_ref, 'fade-in');
+        // Magic.animateElementWithTweenTo(_ref, Math.random(1).toFixed(1)-0, {opacity: 0});
+        Magic.animateElementWithTweenFrom(_ref, 1, { ease: 'Elastic.easeOut', easeParams:[1, 0.3], y: -500} );
     };
 
     componentDidMount() {
-
-
         // "[id^='brick']" // if you have services that increase based on number eg. services1, services2 ...
         // TweenLite.from( '#services', 0.5, {y: 100, opacity: 0} );
         // TweenLite.from( '.serviceTitleText', 2, {y: 100, opacity: 0} );
@@ -43,8 +36,7 @@ class Services extends Component {
         // TweenLite.to( '#row4', 1, { ease: 'Power3.easeInOut', scaleY: 0, y: '-=100%', opacity: 0});
     }
 
-    componentWillUnmount() {
-    }
+    componentWillUnmount() {}
 
     render() {
         return (
