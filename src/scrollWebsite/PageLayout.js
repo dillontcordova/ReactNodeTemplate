@@ -23,6 +23,7 @@ class PageLayout extends Component {
 
                 <section id="header" className="header" >
                     <Header />
+
                 </section>
 
                 <section id="services" className="services">

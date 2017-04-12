@@ -1,9 +1,9 @@
 /* eslint-disable */
-if(typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
-    window.ScrollMagic = require('scrollmagic');
-    require('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js');
-    require('scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js');
-}
+// if(typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
+//     window.ScrollMagic = require('scrollmagic');
+//     require('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js');
+//     require('scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js');
+// }
 
 class Magic {
     constructor() {
