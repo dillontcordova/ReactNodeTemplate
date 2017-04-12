@@ -2,7 +2,10 @@
   "name": "react_node_template",
   "version": "0.0.1",
   "private": true,
-  "devDependencies": {},
+  "devDependencies": {
+    "gsap": "^1.19.1",
+    "scrollmagic": "^2.0.5"
+  },
   "engines": {
     "node": "^6.10.0"
   },
@@ -17,9 +20,7 @@
     "react": "^15.4.2",
     "react-addons-transition-group": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-router": "^3.0.2",
-    "gsap": "^1.19.1",
-    "scrollmagic": "^2.0.5"
+    "react-router": "^3.0.2"
   },
   "scripts": {
     "build": "react-scripts build",
