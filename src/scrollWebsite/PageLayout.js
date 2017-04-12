@@ -23,33 +23,8 @@ class PageLayout extends Component {
 
                 <section id="header" className="header" >
                     <Header />
-
                 </section>
 
-                <section id="services" className="services">
-                    <Services />
-                </section>
-
-
-                <section id="pricing" className="pricing" >
-                    <Pricing/>
-                </section>
-
-                <section id="team" className="team"  >
-                    <Team/>
-                </section>
-
-                <section id="client" className="clients" >
-                    <Clients/>
-                </section>
-
-                <section id="contact" className="contact" >
-                    <Contact/>
-                </section>
-
-                <section id="footer" className="footer" >
-                    <Footer/>
-                </section>
 
             </div>
         )
