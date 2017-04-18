@@ -4,14 +4,17 @@
 const nodemailer = require('nodemailer');
 
 class MailServer {
-    constructor(_emailUser, _emailPass) {
+    constructor(_emailUser) {
         this.emailUser = _emailUser;
         this.smtpTransport = nodemailer.createTransport({
             service: "gmail",
-            host: "smtp.gmail.com",
             auth: {
+                type: 'OAuth2',
                 user: _emailUser,
-                pass: _emailPass
+                clientId: '663837738277-3qutt6p8mjn4dlt7viekfnj3sn1dr2ek.apps.googleusercontent.com',
+                clientSecret: 'mXutHPJ5rLIRF1HGI7V9yqVK',
+                refreshToken: '1/uVLdXqRpgL9yD6ChyZO1U47frrXNNykuAllrwNNn9ds',
+                accessToken: 'ya29.GlsxBEoT9BQfqSf0oh8_3vXRvCox0w9BpoerWNPekU4SDY3tEx5tonXCAuHLjGldMtWTWuSAfnh1BXrZSz8vWxaIavPGOoA68R9jabI1mo6hWGgv99308PjGWnbe'
             }
         });
     }

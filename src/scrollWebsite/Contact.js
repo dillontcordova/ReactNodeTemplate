@@ -14,7 +14,7 @@ class Contact extends Component {
     }
 
     click = () => {
-        // new Email();
+        //verification
         Email.send( {
             from : 'Dillon <dillontcordova@gmail.com>',
             subject : 'Dillon\'s Test!',
@@ -53,23 +53,23 @@ class Contact extends Component {
 
                         <div ref={this.addComponentRef} className="input-group input-group-lg">
                                     <span className="input-group-addon" id="sizing-addon1">
-                                        <i className="fa fa-user" aria-hidden="true"/>
+                                        <i className="fa fa-user"/>
                                     </span>
-                            <input type="text" className="form-control" aria-describedby="sizing-addon1" placeholder="Full Name"/>
+                            <input type="text" className="form-control" placeholder="Full Name"/>
                         </div>
 
                         <div ref={this.addComponentRef} className="input-group input-group-lg">
                                     <span className="input-group-addon" id="sizing-addon1">
-                                        <i className="fa fa-envelope" aria-hidden="true"/>
+                                        <i className="fa fa-envelope" />
                                     </span>
-                            <input type="text" className="form-control" aria-describedby="sizing-addon1" placeholder="Email Address"/>
+                            <input type="text" className="form-control" placeholder="Email Address"/>
                         </div>
 
                         <div ref={this.addComponentRef} className="input-group input-group-lg">
                                     <span className="input-group-addon" id="sizing-addon1">
-                                        <i className="fa fa-phone" aria-hidden="true"/>
+                                        <i className="fa fa-phone" />
                                     </span>
-                            <input type="text" className="form-control" aria-describedby="sizing-addon1" placeholder="Phone Number"/>
+                            <input type="text" className="form-control" placeholder="Phone Number"/>
                         </div>
                     </div>
 

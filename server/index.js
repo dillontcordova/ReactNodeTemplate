@@ -32,7 +32,7 @@ staticFiles.forEach( (file) => {
 });
 
 
-let mail = new MailServer('dillontcordova@gmail.com', 'qazxdswe1211');
+let mail = new MailServer('dillontcordova@gmail.com');
 let reactRender = new ReactRender( path.join( __dirname, buildPathName, 'index.html') );
 
 //Magic of all react html rendering happens here
