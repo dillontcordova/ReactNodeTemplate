@@ -13,8 +13,6 @@ import Footer from './Footer';
 
 class PageLayout extends Component {
 
-    componentDidMount() {}
-
     render() {
 
         return (

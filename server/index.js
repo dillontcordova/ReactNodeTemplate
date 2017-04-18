@@ -3,21 +3,13 @@ require('babel-core/register')({
     presets: ['es2015', 'react'],
     plugins: ["transform-class-properties"]
 });
-
 const buildPathName = '../build';
-
 const http = require('http');
 const path = require('path');
-const fs = require('fs');
 const express = require('express');
-const react = require('react');
-const reactDomServer = require('react-dom/server');
-const reactRouter = require('react-router');
-
-const renderToString = reactDomServer.renderToString;
-const match = reactRouter.match;
-const RouterContext = reactRouter.RouterContext;
-
+const ReactRender = require('./ReactRender');
+const MailServer = require('./MailServer');
+const bodyParser = require('body-parser'); //allows for POST requests to read passed parament "body" ex: (req.body)
 const staticFiles = [
     '/static/*',
     '/images/*',
@@ -26,9 +18,11 @@ const staticFiles = [
     '/favicon.ico'
 ];
 
+
 const app = express();
 app.server = http.createServer(app);
 app.use(express.static(buildPathName));
+app.use( bodyParser.json(';') );
 
 staticFiles.forEach( (file) => {
     app.get(file, (req, res) => {
@@ -37,38 +31,15 @@ staticFiles.forEach( (file) => {
     })
 });
 
-const routes = require('../src/routes').default();
 
-//Magic of html render happens here
-app.get('*', (req, res) => {
-    const error = ()=> res.status(404).send('404');
-    const htmlFilePath = path.join( __dirname, buildPathName, 'index.html');
+let mail = new MailServer('dillontcordova@gmail.com', 'qazxdswe1211');
+let reactRender = new ReactRender( path.join( __dirname, buildPathName, 'index.html') );
 
-    fs.readFile( htmlFilePath, 'utf8', (err, htmlData) => {
-        if(!err) {
-            let locationUrl = req.url;
-            match({routes, location: locationUrl}, (err, redirect, ssrData) => {
-                if(err) {
-                    error();
-                } else if(redirect){
-                    res.redirect(302, redirect.pathname + redirect.search);
-                } else if(ssrData){
-                    const ReactApp = renderToString( react.createElement(RouterContext, ssrData) );
-                    const RenderedApp = htmlData.replace('{{SSR}}', ReactApp);
-                    res.status(200).send(RenderedApp);
-                } else {
-                    error();
-                }
-            })
-        } else {
-            error();
-        }
-    });
-});
+//Magic of all react html rendering happens here
+app.get('/', reactRender.HTML);
+
+//adding email system
+app.post('/send', mail.send);
 
 app.server.listen( process.env.PORT || 8080);
 console.log( 'listening on http://' + app.server.address().port );
-
-
-
-

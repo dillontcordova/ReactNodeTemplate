@@ -2,6 +2,7 @@
  * Created by dillo_000 on 3/22/2017.
  */
 import React, {Component} from 'react';
+import {findDOMNode as getDomFromComponent} from 'react-dom';
 import Magic from '../lib/Magic';
 import FontIcon from './FontIcon';
 
@@ -23,7 +24,7 @@ class Clients extends Component {
     };
 
     addComponentRef = (_ref) => {
-        this.componentRefs.push(_ref);
+        this.componentRefs.push( getDomFromComponent(_ref) );
     };
 
     componentDidMount() {

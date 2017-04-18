@@ -3,6 +3,7 @@
  */
 import React, {Component} from 'react';
 import Magic from '../lib/Magic';
+import Email from '../lib/Email';
 
 class Contact extends Component {
     constructor(_props) {
@@ -11,6 +12,15 @@ class Contact extends Component {
         this.componentRefs = [];
         this.triggerElement = null;
     }
+
+    click = () => {
+        // new Email();
+        Email.send( {
+            from : 'Dillon <dillontcordova@gmail.com>',
+            subject : 'Dillon\'s Test!',
+            text : 'Hello World'
+        });
+    };
 
     getTrigger = (_ref) => {
         this.triggerElement = _ref;
@@ -32,7 +42,7 @@ class Contact extends Component {
     render() {
         return (
             <div ref={this.getTrigger} className="container">
-            <div className="row">
+                <div className="row">
                     <h2 ref={this.addTextRef} >Contact</h2>
                     <p ref={this.addTextRef} >
                         Lorem Ipsum passages, and more recently
@@ -67,7 +77,7 @@ class Contact extends Component {
                         <div ref={this.addComponentRef} className="input-group">
                             <textarea name="" id="" cols="80" rows="6" className="form-control"/>
                         </div>
-                        <button ref={this.addComponentRef} className="btn btn-lg">
+                        <button onClick={this.click} ref={this.addComponentRef} className="btn btn-lg">
                             Submit Your Message
                         </button>
                     </div>

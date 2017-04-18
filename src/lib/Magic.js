@@ -3,6 +3,7 @@ if(typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
     window.ScrollMagic = require('scrollmagic');
     require('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js');
     require('scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js');
+    require('gsap/src/uncompressed/plugins/ScrollToPlugin');
 }
 
 class Magic {
@@ -57,6 +58,11 @@ class Magic {
         process.env.NODE_ENV === 'development' && scene.addIndicators();
         scene.addTo( this.getController() );
     }
+
+    static animateElementWithScrollTo(_element) {
+        TweenMax.to(window, 0.5, {scrollTo: _element});
+    }
+
 
 }
 export default Magic;

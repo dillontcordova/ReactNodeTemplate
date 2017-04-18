@@ -2,33 +2,41 @@
  * Created by dillo_000 on 3/22/2017.
  */
 import React, {Component} from 'react';
+import Magic from '../lib/Magic';
 
 class Navigation extends Component {
 
+    click = (_href) => {
+        Magic.animateElementWithScrollTo(_href);
+        return false;
+    };
+
     render() {
         return (
-            <div id="myNavbar" className="navbar navbar-default navbar-fixed-top" role="navigation">
+            <nav id="myNavbar" className="navbar navbar-default navbar-fixed-top" >
                 <div className="container">
-                    <div className="navbar-header">
-                        <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span className="icon-bar"/>
-                            <span className="icon-bar"/>
-                            <span className="icon-bar"/>
-                        </button>
-                        <a href="#" className="navbar-brand">Media</a>
-                    </div>
-                    <div className="navbar-collapse collapse">
+
+                    <a href="#" className="navbar-brand">Tech Site</a>
+
+                    <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target=".navHeaderCollapse">
+                        <span className="icon-bar"/>
+                        <span className="icon-bar"/>
+                        <span className="icon-bar"/>
+                    </button>
+
+                    <div className="collapse navbar-collapse navHeaderCollapse">
                         <ul className="nav navbar-nav navbar-right">
-                            <li><a href="#header">Home</a></li>
-                            <li><a href="#services">services</a></li>
-                            <li><a href="#pricing">pricing</a></li>
-                            <li><a href="#team">team</a></li>
-                            <li><a href="#client">clients</a></li>
-                            <li><a href="#contact">contact</a></li>
+                            <li><a onClick={()=>{ this.click('#header')     }} >Home</a></li>
+                            <li><a onClick={()=>{ this.click('#services')   }} >services</a></li>
+                            <li><a onClick={()=>{ this.click('#pricing')    }} >pricing</a></li>
+                            <li><a onClick={()=>{ this.click('#team')       }} >team</a></li>
+                            <li><a onClick={()=>{ this.click('#client')     }} >clients</a></li>
+                            <li><a onClick={()=>{ this.click('#contact')    }} >contact</a></li>
                         </ul>
                     </div>
+
                 </div>
-            </div>
+            </nav>
         );
     }
 }
