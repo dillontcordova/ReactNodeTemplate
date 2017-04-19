@@ -18,20 +18,20 @@ class Navigation extends Component {
 
                     <a href="#" className="navbar-brand">Tech Site</a>
 
-                    <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target=".navHeaderCollapse">
+                    <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navHeaderCollapse">
                         <span className="icon-bar"/>
                         <span className="icon-bar"/>
                         <span className="icon-bar"/>
                     </button>
 
-                    <div className="collapse navbar-collapse navHeaderCollapse">
+                    <div id="navHeaderCollapse" className="collapse navbar-collapse">
                         <ul className="nav navbar-nav navbar-right">
-                            <li><a onClick={()=>{ this.click('#header')     }} >Home</a></li>
-                            <li><a onClick={()=>{ this.click('#services')   }} >services</a></li>
-                            <li><a onClick={()=>{ this.click('#pricing')    }} >pricing</a></li>
-                            <li><a onClick={()=>{ this.click('#team')       }} >team</a></li>
-                            <li><a onClick={()=>{ this.click('#client')     }} >clients</a></li>
-                            <li><a onClick={()=>{ this.click('#contact')    }} >contact</a></li>
+                            <li><a  data-toggle="collapse" data-target="#navHeaderCollapse" onClick={()=>{ this.click('#header')     }} >Home</a></li>
+                            <li><a  data-toggle="collapse" data-target="#navHeaderCollapse" onClick={()=>{ this.click('#services')   }} >services</a></li>
+                            <li><a  data-toggle="collapse" data-target="#navHeaderCollapse" onClick={()=>{ this.click('#pricing')    }} >pricing</a></li>
+                            <li><a  data-toggle="collapse" data-target="#navHeaderCollapse" onClick={()=>{ this.click('#team')       }} >team</a></li>
+                            <li><a  data-toggle="collapse" data-target="#navHeaderCollapse" onClick={()=>{ this.click('#client')     }} >clients</a></li>
+                            <li><a  data-toggle="collapse" data-target="#navHeaderCollapse" onClick={()=>{ this.click('#contact')    }} >contact</a></li>
                         </ul>
                     </div>
 

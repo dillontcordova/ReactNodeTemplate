@@ -54,7 +54,7 @@ class Magic {
             triggerElement: _triggerElement || _element,
             reverse: false
         });
-        scene.setTween( TweenMax.staggerFrom(_element, _duration, _tweenObj, .25) );
+        scene.setTween( TweenMax.staggerFrom(_element, _duration, _tweenObj, .1) );
         process.env.NODE_ENV === 'development' && scene.addIndicators();
         scene.addTo( this.getController() );
     }
