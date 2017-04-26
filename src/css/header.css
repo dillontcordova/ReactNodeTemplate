@@ -1,16 +1,25 @@
 /*HEADER*/
 .header {
+    color: wheat;
     height: 600px;
     width: 100%;
     padding: 30px 0 30px;
     margin-top: 50px;
-    background-image: url(/images/bg3.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #fff;
+    position: relative;
+    text-align: center;
+    background-color: black;
+    overflow: hidden;
 }
 
+#parallaxBg {
+    background: url(/images/parallax.jpg);
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 250%;
+    top: 0;
+    opacity: 0.7;
+}
 
 .header img {
     height: 350px;
@@ -37,7 +46,7 @@
 
 @media(max-width:768px) {
     .header {
-        padding: 30px;
+        padding: 30px 0 30px;
         height: 750px;
     }
 
