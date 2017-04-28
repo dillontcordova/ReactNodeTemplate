@@ -8,17 +8,27 @@ import Email from '../lib/Email';
 class Contact extends Component {
     constructor(_props) {
         super(_props);
+
+        this.state = {
+            emailFrom: '',
+            emailBody: '',
+            emailAddress: '',
+            emailSubject: ''
+        };
         this.textRefs = [];
         this.componentRefs = [];
         this.triggerElement = null;
     }
 
-    click = () => {
+    onSubmit = (event) => {
+        event.preventDefault();
         //verification
-        Email.send( {
-            from : 'Dillon <dillontcordova@gmail.com>',
-            subject : 'Dillon\'s Test!',
-            text : 'Hello World'
+        //verify email and subject have all special chars removed
+        let from = 'From: ' + this.state.emailFrom + this.state.emailAddress;
+        Email.send({
+            from: from,
+            subject: this.state.emailSubject,
+            text: from + '\n\n' + this.state.emailBody
         });
     };
 
@@ -35,52 +45,52 @@ class Contact extends Component {
     };
 
     componentDidMount() {
-        Magic.tweenFrom(this.textRefs, 1, { opacity: 0, scaleX: -1, y: 500}, this.triggerElement );
-        Magic.tweenStagger(this.componentRefs, 1, {scale: 0.5, opacity: 0, delay: 0.5, ease: 'Elastic.easeOut', force3D: true}, this.triggerElement );
+        // Magic.tweenFrom(this.textRefs, 1, {opacity: 0, scaleX: -1, y: 500}, this.triggerElement);
+        Magic.tweenStagger(this.componentRefs, 1, {scale: 0.5, opacity: 0, delay: 0.5, ease: 'Elastic.easeOut', force3D: true }, this.triggerElement);
     }
 
     render() {
         return (
-            <div ref={this.getTrigger} className="container">
+            <div className="container">
                 <div className="row">
-                    <h2 ref={this.addTextRef} >Contact</h2>
-                    <p ref={this.addTextRef} >
+                    <h2>Contact</h2>
+                    <p>
                         Lorem Ipsum passages, and more recently
                         with desktop publishing software
                     </p>
 
-                    <div className="col-lg-6 col-md-6">
+                    <form onSubmit={this.onSubmit}>
+                        <div id="leftFormSide" className="col-lg-6 col-md-6">
 
-                        <div ref={this.addComponentRef} className="input-group input-group-lg">
-                                    <span className="input-group-addon" id="sizing-addon1">
-                                        <i className="fa fa-user"/>
-                                    </span>
-                            <input type="text" className="form-control" placeholder="Full Name"/>
+                            <div className="input-group input-group-lg">
+                                <span className="input-group-addon">
+                                    <i className="fa fa-user"/>
+                                </span>
+                                <input type="text" className="form-control" placeholder="Full Name" value={this.state.emailFrom} onChange={ (_e) => {this.setState({emailFrom: _e.target.value})} }/>
+                            </div>
+
+                            <div className="input-group input-group-lg">
+                                <span className="input-group-addon" >
+                                    <i className="fa fa-envelope"/>
+                                </span>
+                                <input type="text" className="form-control" placeholder="Email Address" value={this.state.emailAddress} onChange={ (_e) => {this.setState({emailAddress: _e.target.value})} }/>
+                            </div>
+
+                            <div className="input-group input-group-lg">
+                                <span className="input-group-addon" >
+                                    <i className="fa fa-phone"/>
+                                </span>
+                                <input type="text" className="form-control" placeholder="Phone Number"/>
+                            </div>
                         </div>
 
-                        <div ref={this.addComponentRef} className="input-group input-group-lg">
-                                    <span className="input-group-addon" id="sizing-addon1">
-                                        <i className="fa fa-envelope" />
-                                    </span>
-                            <input type="text" className="form-control" placeholder="Email Address"/>
+                        <div id="rightFormSide" className="col-lg-6 col-md-6">
+                            <div className="input-group">
+                                <textarea cols="80" rows="6" className="form-control" value={this.state.emailBody} onChange={ (_e) => {this.setState({emailBody: _e.target.value})} }/>
+                            </div>
+                            <input ref={this.addComponentRef} type="submit" value="Submit" className="btn btn-lg"/>
                         </div>
-
-                        <div ref={this.addComponentRef} className="input-group input-group-lg">
-                                    <span className="input-group-addon" id="sizing-addon1">
-                                        <i className="fa fa-phone" />
-                                    </span>
-                            <input type="text" className="form-control" placeholder="Phone Number"/>
-                        </div>
-                    </div>
-
-                    <div className="col-lg-6 col-md-6">
-                        <div ref={this.addComponentRef} className="input-group">
-                            <textarea name="" id="" cols="80" rows="6" className="form-control"/>
-                        </div>
-                        <button onClick={this.click} ref={this.addComponentRef} className="btn btn-lg">
-                            Submit Your Message
-                        </button>
-                    </div>
+                    </form>
 
                 </div>
             </div>

@@ -1,9 +1,21 @@
 /*CLIENTS*/
 .clients {
     padding: 50px 0 80px;
-    background-color: cornflowerblue;
-    text-align: center;
     color: #fff;
+
+    background-color: black;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+#parallaxClientsBg{
+    background: url(/images/parallaxClients.jpg);
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 250%;
+    top: 0;
+    opacity: 0.7;
 }
 
 .client h2 {

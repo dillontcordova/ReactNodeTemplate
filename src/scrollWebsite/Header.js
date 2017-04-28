@@ -26,7 +26,7 @@ class Header extends Component {
     };
 
     componentDidMount() {
-        Magic.tweenParallax("#parallaxBg", 1, {}, this.triggerElement );
+        Magic.tweenParallax('#parallaxHeaderBg', 1, {}, this.triggerElement );
         Magic.tweenFrom(this.textRefs, 2, { ease: 'Bounce.easeOut', y: 500, opacity: 0}, this.triggerElement );
         Magic.tweenStagger(this.componentRefs, 1, {scale: 0.5, opacity: 0, delay: 0.5, ease: 'Elastic.easeOut', force3D: true}, this.triggerElement );
     }
@@ -34,18 +34,17 @@ class Header extends Component {
     render() {
         return (
             <div>
+                <div id="parallaxHeaderBg"/>
+                <div ref={this.getTrigger} className="container">
+                    <div className="row">
 
-            <div id="parallaxBg"/>
-            <div ref={this.getTrigger} className="container">
-                <div className="row">
+                        <div ref={this.addComponentRef} id="left" className="col-lg-12 col-md-12">
+                            <h1 ref={this.addTextRef} >WHO ELSE BUT ELSA!</h1>
+                            <img src="/images/Responsive-Web-Design.png" alt=""/>
+                        </div>
 
-                    <div ref={this.addComponentRef} id="left" className="col-lg-12 col-md-12">
-                        <img src="/images/Responsive-Web-Design.png" alt=""/>
-                        <h1 ref={this.addTextRef} >WHO ELSE BUT ELSA!</h1>
                     </div>
-
                 </div>
-            </div>
             </div>
         );
     }

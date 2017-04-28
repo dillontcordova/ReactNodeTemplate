@@ -62,7 +62,7 @@ class Magic {
         let scene = new ScrollMagic.Scene({
             triggerElement: _triggerElement,
             triggerHook: 2,
-            duration: '200%'
+            duration: '150%'
         });
         scene.setTween( TweenMax.from(_element, 1, {y: '-50%', ease: 'Power0.easeNone'}) );
         process.env.NODE_ENV === 'development' && scene.addIndicators();

@@ -1,9 +1,10 @@
 /*NAVIGATION*/
 .navbar {
-    background-color: #222222 !important;
+    background-color: cornflowerblue;
     text-transform: uppercase;
     font-family: 'PT Sans Narrow', Arial, sans-serif;
     font-weight: 700;
+    opacity: 0.7;
 }
 
 .navbar a {

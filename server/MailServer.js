@@ -20,13 +20,14 @@ class MailServer {
     }
 
     send = (_req, _res) => {
+        // let bodyText = _req.body.from + ' has emailed you with an email address of: ' + ;
         let mailOptions = {
             from : _req.body.from,
             to : this.emailUser,
-            subject : _req.body.subject,
+            subject : _req.body.subject || 'Website Offer',
             text : _req.body.text
         };
-
+        console.log(mailOptions);
         this.smtpTransport.sendMail(mailOptions, function(error, response){
             if(error){
                 console.log(error);

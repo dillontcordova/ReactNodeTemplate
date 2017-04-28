@@ -27,17 +27,16 @@ class PageLayout extends Component {
                     <Services />
                 </section>
 
+                <section id="client" className="clients" >
+                    <Clients/>
+                </section>
 
                 <section id="pricing" className="pricing" >
                     <Pricing/>
                 </section>
 
-                <section id="team" className="team"  >
+                <section id="team" className="team" >
                     <Team/>
-                </section>
-
-                <section id="client" className="clients" >
-                    <Clients/>
                 </section>
 
                 <section id="contact" className="contact" >

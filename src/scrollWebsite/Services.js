@@ -34,46 +34,45 @@ class Services extends Component {
 
     render() {
         return (
-            <div>
-                <div ref={this.getTrigger} className="container" >
-                    <div className="row">
-                        <h2 ref={this.addTextRef} className="serviceTitleText">Services</h2>
-                        <p ref={this.addTextRef} className="serviceTitleText">
+            <div ref={this.getTrigger} className="container" >
+                <div className="row">
+                    <h2 ref={this.addTextRef} className="serviceTitleText">Services</h2>
+                    <p ref={this.addTextRef} className="serviceTitleText">
+                    </p>
+
+                    <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
+                        <FontIcon fontClassName='icon-database'/>
+                        <h4>FACE PAINTING</h4>
+                        <p>
+                            Enjoy a face painting done by your very own Ice Queen!
+                            From snowflakes to snowmen and even make your child look like a princess or prince!
                         </p>
-
-                        <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
-                            <FontIcon fontClassName='icon-database'/>
-                            <h4>FACE PAINTING</h4>
-                            <p>
-                                Enjoy a face painting done by your very own Ice Queen!
-                            </p>
-                        </div>
-
-                        <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
-                            <FontIcon fontClassName='icon-database'/>
-                            <h4>STORY TELLING</h4>
-                            <p>
-                                Hear fun themed stories about all the adventures with Elsa’s friends!
-                            </p>
-                        </div>
-
-                        <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
-                            <FontIcon fontClassName='icon-database'/>
-                            <h4>PLAYING GAMES</h4>
-                            <p>
-                                As well as play games to make the kids giggle and have fun they won’t want to stop!
-                            </p>
-                        </div>
-
-                        <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
-                            <FontIcon fontClassName='icon-database'/>
-                            <h4>SNOW MAKING</h4>
-                            <p>
-                                From snowflakes to snowmen and even make your child look like a princess or prince!
-                            </p>
-                        </div>
-
                     </div>
+
+                    <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
+                        <FontIcon fontClassName='icon-database'/>
+                        <h4>STORY TELLING</h4>
+                        <p>
+                            Hear fun themed stories about all the adventures with Elsa’s friends!
+                        </p>
+                    </div>
+
+                    <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
+                        <FontIcon fontClassName='icon-database'/>
+                        <h4>PLAYING GAMES</h4>
+                        <p>
+                            As well as play games to make the kids giggle and have fun they won’t want to stop!
+                        </p>
+                    </div>
+
+                    <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
+                        <FontIcon fontClassName='icon-database'/>
+                        <h4>SNOW MAKING</h4>
+                        <p>
+                            From snowflakes to snowmen and even make your child look like a princess or prince!
+                        </p>
+                    </div>
+
                 </div>
             </div>
         )
