@@ -3,7 +3,6 @@
  */
 import React, {Component} from 'react';
 import Magic from '../lib/Magic';
-import FontIcon from './FontIcon';
 
 class Services extends Component {
 
@@ -38,10 +37,11 @@ class Services extends Component {
                 <div className="row">
                     <h2 ref={this.addTextRef} className="serviceTitleText">Services</h2>
                     <p ref={this.addTextRef} className="serviceTitleText">
+                        Lorem Ipsum passages, and more recently with desktop publishing software
                     </p>
 
                     <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
-                        <FontIcon fontClassName='icon-database'/>
+                        <i className="fa fa-snowflake-o" />
                         <h4>FACE PAINTING</h4>
                         <p>
                             Enjoy a face painting done by your very own Ice Queen!
@@ -50,7 +50,7 @@ class Services extends Component {
                     </div>
 
                     <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
-                        <FontIcon fontClassName='icon-database'/>
+                        <i className="fa fa-snowflake-o" />
                         <h4>STORY TELLING</h4>
                         <p>
                             Hear fun themed stories about all the adventures with Elsa’s friends!
@@ -58,7 +58,7 @@ class Services extends Component {
                     </div>
 
                     <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
-                        <FontIcon fontClassName='icon-database'/>
+                        <i className="fa fa-snowflake-o" />
                         <h4>PLAYING GAMES</h4>
                         <p>
                             As well as play games to make the kids giggle and have fun they won’t want to stop!
@@ -66,7 +66,7 @@ class Services extends Component {
                     </div>
 
                     <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
-                        <FontIcon fontClassName='icon-database'/>
+                        <i className="fa fa-snowflake-o" />
                         <h4>SNOW MAKING</h4>
                         <p>
                             From snowflakes to snowmen and even make your child look like a princess or prince!

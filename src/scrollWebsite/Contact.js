@@ -20,6 +20,12 @@ class Contact extends Component {
         this.triggerElement = null;
     }
 
+    onChange = (_e) => {
+        let newState = {};
+        newState[_e.target.name] = _e.target.value;
+        this.setState(newState);
+    };
+
     onSubmit = (event) => {
         event.preventDefault();
         //verification
@@ -59,21 +65,21 @@ class Contact extends Component {
                         with desktop publishing software
                     </p>
 
-                    <form onSubmit={this.onSubmit}>
+                    <form onSubmit={this.onSubmit} name="asd">
                         <div id="leftFormSide" className="col-lg-6 col-md-6">
 
                             <div className="input-group input-group-lg">
                                 <span className="input-group-addon">
                                     <i className="fa fa-user"/>
                                 </span>
-                                <input type="text" className="form-control" placeholder="Full Name" value={this.state.emailFrom} onChange={ (_e) => {this.setState({emailFrom: _e.target.value})} }/>
+                                <input type="text" className="form-control" placeholder="Full Name" value={this.state.emailFrom} name="emailFrom" onChange={ this.onChange }/>
                             </div>
 
                             <div className="input-group input-group-lg">
                                 <span className="input-group-addon" >
                                     <i className="fa fa-envelope"/>
                                 </span>
-                                <input type="text" className="form-control" placeholder="Email Address" value={this.state.emailAddress} onChange={ (_e) => {this.setState({emailAddress: _e.target.value})} }/>
+                                <input type="text" className="form-control" placeholder="Email Address" value={this.state.emailAddress} name="emailAddress" onChange={ this.onChange } />
                             </div>
 
                             <div className="input-group input-group-lg">
@@ -85,10 +91,13 @@ class Contact extends Component {
                         </div>
 
                         <div id="rightFormSide" className="col-lg-6 col-md-6">
+                            <span className="input-group-addon" >
+                                <i className="fa fa-pencil-square-o"/>
+                            </span>
                             <div className="input-group">
-                                <textarea cols="80" rows="6" className="form-control" value={this.state.emailBody} onChange={ (_e) => {this.setState({emailBody: _e.target.value})} }/>
+                                <textarea cols="80" rows="4" className="form-control" placeholder="Message" value={this.state.emailBody} name="emailBody" onChange={ this.onChange } />
                             </div>
-                            <input ref={this.addComponentRef} type="submit" value="Submit" className="btn btn-lg"/>
+                            <input ref={this.addComponentRef} type="submit"  value="Submit" className="btn btn-lg"/>
                         </div>
                     </form>
 

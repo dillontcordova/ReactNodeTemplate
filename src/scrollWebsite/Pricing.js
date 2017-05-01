@@ -10,16 +10,46 @@ class Pricing extends Component {
         super(_props);
 
         this.state = {
-            addTravel: false,
+            kidNum: 10,
+            hrNum: 1,
+            addFacePainting: false,
             addBalloons: false,
-            addAssitToPrin: false,
-            addFacePainting: false
+            addAssistant: false,
+            addAssistantToPrincess: false,
+            addTravel: false
         };
 
         this.textRefs = [];
         this.componentRefs = [];
         this.triggerElement = null;
     }
+
+    reCalculate(a) {
+        let asd = {
+            kidNum: this.state.kidNum,
+            hrNum: this.state.hrNum,
+            addFacePainting: this.state.addFacePainting,
+            addBalloons: this.state.addBalloons,
+            addAssistant: this.state.addAssistant,
+            addAssistantToPrincess: this.state.addAssistantToPrincess,
+            addTravel: this.state.addTravel
+        };
+
+        if(a > 15) {
+            let isAssistant = true;
+            console.log(this.state);
+            this.setState({addAssistant: true});
+            console.log(this.state);
+        }
+    }
+
+    onChange = (_e) => {
+        let newState = {};
+        newState[_e.target.name] = _e.target.value !== 'on' ? _e.target.value: _e.target.checked;
+        this.setState(newState);
+        this.reCalculate(_e.target.value);
+    };
+
 
     getTrigger = (_ref) => {
         this.triggerElement = _ref;
@@ -48,102 +78,75 @@ class Pricing extends Component {
                 </p>
 
                 <form>
-                    <div id="formLeftSide"  className="col-lg-6 col-md-6">
+                    <div id="formLeftSide"  className="packages col-lg-9 col-md-9">
                         <div className="form-group row">
-                            <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
+                            <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Number Of Kids</label>
                             <div className="col-sm-10">
-                                <input type="email" className="form-control" id="inputEmail3" placeholder="Email"/>
+                                <input type="number" min="1" step="1" name="kidNum" value={this.state.kidNum}  onChange={this.onChange}/>
                             </div>
                         </div>
+                        <div className="form-group row">
+                            <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Number Of Hrs</label>
+                            <div className="col-sm-10">
+                                <input type="number" min="1" step="1" name="hrNum" value={this.state.hrNum} onChange={this.onChange} />
+                            </div>
+                        </div>
+
+
                         <fieldset className="form-group row">
-                            <legend className="col-form-legend col-sm-2">AddOns</legend>
                             <div className="col-sm-10">
                                 <div className="form-check">
                                     <label className="form-check-label">
-                                        <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" />
-                                        Option one is this and that&mdash;be sure to include why it's great
+                                        <input className="form-check-input" type="checkbox"  name="addFacePainting" checked={this.state.addFacePainting} onChange={this.onChange}/>
+                                        Add Face Painting
                                     </label>
                                 </div>
                                 <div className="form-check">
                                     <label className="form-check-label">
-                                        <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"/>
-                                        Option two can be something else and selecting it will deselect option one
+                                        <input className="form-check-input" type="checkbox" name="addBalloons" checked={this.state.addBalloons} onChange={this.onChange} />
+                                        Balloon Animals
                                     </label>
                                 </div>
-                                <div className="form-check disabled">
+                                <div className="form-check">
                                     <label className="form-check-label">
-                                        <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled/>
-                                        Option three is disabled
+                                        <input className="form-check-input" type="checkbox" name="addAssistant" checked={this.state.addAssistant} onChange={this.onChange} />
+                                        Add Assistant
+                                    </label>
+                                </div>
+                                <div className="form-check">
+                                    <label className="form-check-label">
+                                        <input className="form-check-input" type="checkbox" name="addAssistantToPrincess" checked={this.state.addAssistantToPrincess && this.state.addAssistant} onChange={this.onChange} disabled={!this.state.addAssistant} />
+                                        Upgrade Assistant to Princess
+                                    </label>
+                                </div>
+                                <div className="form-check">
+                                    <label className="form-check-label">
+                                        <input className="form-check-input" type="checkbox" name="addTravel" checked={this.state.addTravel} onChange={this.onChange} />
+                                        Travel is farther than 15 miles of Sherman Oaks
                                     </label>
                                 </div>
                             </div>
                         </fieldset>
+                    </div>
+
+
+                    <div id="formRightSide"  className="packages col-lg-3 col-md-3">
                         <div className="form-group row">
-                            <label className="col-sm-2">Checkbox</label>
-                            <div className="col-sm-10">
-                                <div className="form-check">
-                                    <label className="form-check-label">
-                                        <input className="form-check-input" type="checkbox"/>
-                                    </label>
-                                </div>
-                            </div>
+                            <p id="total"> Total Cost: 22.9 </p>
+                            <p id="total"> Total Cost: 22.9 </p>
+                            <p id="total"> Total Cost: 22.9 </p>
+                            <p id="total"> Total Cost: 22.9 </p>
+                            <p id="total"> Total Cost: 22.9 </p>
+                            <p id="total"> Total Cost: 22.9 </p>
+                            <p id="total"> Total Cost: 22.9 </p>
                         </div>
                         <div className="form-group row">
                             <div className="offset-sm-2 col-sm-10">
-                                <button type="submit" className="btn btn-primary">Sign in</button>
+                                <button type="submit" className="btn btn-primary">Save Quote</button>
                             </div>
                         </div>
                     </div>
 
-
-
-                    <div id="formRightSide"  className="col-lg-6 col-md-6">
-                        <div className="form-group row">
-                            <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
-                            <div className="col-sm-10">
-                                <input type="email" className="form-control" id="inputEmail3" placeholder="Email"/>
-                            </div>
-                        </div>
-
-                        <fieldset className="form-group row">
-                            <legend className="col-form-legend col-sm-2">Add Ons</legend>
-                            <div className="col-sm-10">
-                                <div className="form-check">
-                                    <label className="form-check-label">
-                                        <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" />
-                                        Option one is this and that&mdash;be sure to include why it's great
-                                    </label>
-                                </div>
-                                <div className="form-check">
-                                    <label className="form-check-label">
-                                        <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2"/>
-                                        Option two can be something else and selecting it will deselect option one
-                                    </label>
-                                </div>
-                                <div className="form-check disabled">
-                                    <label className="form-check-label">
-                                        <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled/>
-                                        Option three is disabled
-                                    </label>
-                                </div>
-                            </div>
-                        </fieldset>
-                        <div className="form-group row">
-                            <label className="col-sm-2">Checkbox</label>
-                            <div className="col-sm-10">
-                                <div className="form-check">
-                                    <label className="form-check-label">
-                                        <input className="form-check-input" type="checkbox"/>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="form-group row" >
-                            <div className="offset-sm-2 col-sm-10">
-                                <button type="submit" className="btn btn-primary">Sign in</button>
-                            </div>
-                        </div>
-                    </div>
                 </form>
             </div>
         );

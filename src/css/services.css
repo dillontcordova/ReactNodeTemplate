@@ -2,6 +2,8 @@
 .services {
     position: relative;
     padding: 80px 0 80px;
+
+    background-color: white;
     text-align: center;
     overflow: hidden;
 }
@@ -22,7 +24,7 @@
 .services i {
     font-size: 5em;
     border-radius: 75%;
-    color: yellow;
+    color: deepskyblue;
 }
 
 @media(max-width:768px) {

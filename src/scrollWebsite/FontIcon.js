@@ -17,9 +17,9 @@ class FontIcon extends Component {
         }
 
         return (
-            <div className="my-icons col-lg-2 col-md-2 col-sm-1">
+            <span className="my-icons col-lg-2 col-md-2 col-sm-1">
                 {fontElement}
-            </div>
+            </span>
         )
     }
 }
