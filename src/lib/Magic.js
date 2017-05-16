@@ -17,9 +17,7 @@ class Magic {
         return new ScrollMagic.Scene(_sceneObj);
     }
 
-
-
-    static animateElementWithCss(_element, _cssClass, _triggerElement) {
+    static triggerCssClass(_element, _cssClass, _triggerElement) {
         let scene = new ScrollMagic.Scene({
             triggerElement: _triggerElement || _element,
             reverse: false
@@ -29,7 +27,7 @@ class Magic {
         scene.addTo( this.getController() );
     }
 
-    static animateElementWithTweenFrom(_element, _duration, _tweenObj, _triggerElement) {
+    static tweenFrom(_element, _duration, _tweenObj, _triggerElement) {
         let scene = new ScrollMagic.Scene({
             triggerElement: _triggerElement || _element,
             reverse: false
@@ -39,7 +37,7 @@ class Magic {
         scene.addTo( this.getController() );
     }
 
-    static animateElementWithTweenTo(_element, _duration, _tweenObj, _triggerElement) {
+    static tweenTo(_element, _duration, _tweenObj, _triggerElement) {
         let scene = new ScrollMagic.Scene({
             triggerElement: _triggerElement || _element,
             reverse: false
@@ -49,7 +47,8 @@ class Magic {
         scene.addTo( this.getController() );
     }
 
-    static animateElementWithTweenStagger(_element, _duration, _tweenObj, _triggerElement) {
+
+    static tweenStagger(_element, _duration, _tweenObj, _triggerElement) {
         let scene = new ScrollMagic.Scene({
             triggerElement: _triggerElement || _element,
             reverse: false
@@ -59,7 +58,39 @@ class Magic {
         scene.addTo( this.getController() );
     }
 
-    static animateElementWithScrollTo(_element) {
+    static continuousFadeToNextElement(_array, _duration, _elemPos) {
+        //alter css here (will only occur once)
+        (function nextSlide(_array, _duration, _elemPos) {
+            _elemPos = !_elemPos ? 0: _elemPos;
+            TweenMax.to( _array[_elemPos], 1, { opacity: 1 ,
+                onComplete: function () {
+                    TweenMax.to( _array[_elemPos], _duration, { opacity: 0 ,
+                        onComplete: function () {
+                            _elemPos++;
+                            if(_elemPos > _array.length-1) {
+                                _elemPos = 0;
+                            }
+                            nextSlide(_array, _duration, _elemPos);
+                        }
+                    })
+                }
+            });
+        })(_array, _duration, _elemPos);
+
+    }
+
+    static tweenParallax(_element, _triggerElement) {
+        let scene = new ScrollMagic.Scene({
+            triggerElement: _triggerElement,
+            triggerHook: 2,
+            duration: '150%'
+        });
+        scene.setTween( TweenMax.from(_element, 1, {y: '-50%', ease: 'Power0.easeNone'}) );
+        process.env.NODE_ENV === 'development' && scene.addIndicators();
+        scene.addTo( this.getController() );
+    }
+
+    static scrollTo(_element) {
         TweenMax.to(window, 0.5, {scrollTo: _element});
     }
 

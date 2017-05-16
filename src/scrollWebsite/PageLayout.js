@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import Navigation from './Navigation';
 import Header from './Header';
 import Services from './Services';
-// import Projects from './Projects';
 import Pricing from './Pricing';
 import Team from './Team';
 import Clients from './Clients';

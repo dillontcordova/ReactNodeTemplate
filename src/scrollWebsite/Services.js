@@ -3,7 +3,6 @@
  */
 import React, {Component} from 'react';
 import Magic from '../lib/Magic';
-import FontIcon from './FontIcon';
 
 class Services extends Component {
 
@@ -27,40 +26,40 @@ class Services extends Component {
     };
 
     componentDidMount() {
-        Magic.animateElementWithTweenFrom(this.textRefs, 1, { opacity: 0, scaleX: -1, y: 500}, this.triggerElement );
-        Magic.animateElementWithTweenStagger(this.componentRefs, 1, {scale: 0.5, opacity: 0, delay: 0.5, ease: 'Elastic.easeOut', force3D: true}, this.triggerElement );
+        Magic.tweenFrom(this.textRefs, 1, { opacity: 0, scaleX: -1, y: 500}, this.triggerElement );
+        Magic.tweenStagger(this.componentRefs, 1, {scale: 0.5, opacity: 0, delay: 0.5, ease: 'Elastic.easeOut', force3D: true}, this.triggerElement );
     }
 
     render() {
         return (
             <div ref={this.getTrigger} className="container" >
                 <div className="row">
-                    <h2 ref={this.addTextRef} className="serviceTitleText">Services</h2>
+                    <h2 ref={this.addTextRef} className="serviceTitleText">Strengths</h2>
                     <p ref={this.addTextRef} className="serviceTitleText">
                         Lorem Ipsum is simply dummy text of the
                         printing and type setting dummy text
                     </p>
 
                     <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
-                        <FontIcon fontClassName='icon-database'/>
+                        <i className='icon-database'/>
                         <h4>Web design</h4>
                         <p>Lorem Ipsum passages, and more recently with desktop publishing software</p>
                     </div>
 
                     <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
-                        <FontIcon fontClassName='icon-database'/>
+                        <i className='icon-database'/>
                         <h4>Mobile Apps</h4>
                         <p>Lorem Ipsum passages, and more recently with desktop publishing software</p>
                     </div>
 
                     <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
-                        <FontIcon fontClassName='icon-database'/>
+                        <i className='icon-database'/>
                         <h4>Database</h4>
                         <p>Lorem Ipsum passages, and more recently with desktop publishing software</p>
                     </div>
 
                     <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
-                        <FontIcon fontClassName='icon-database'/>
+                        <i className='icon-database'/>
                         <h4>Consulting</h4>
                         <p>Lorem Ipsum passages, and more recently with desktop publishing software</p>
                     </div>

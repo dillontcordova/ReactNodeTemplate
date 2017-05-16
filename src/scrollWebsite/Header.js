@@ -26,8 +26,9 @@ class Header extends Component {
     };
 
     componentDidMount() {
-        Magic.animateElementWithTweenFrom(this.textRefs, 2, { ease: 'Bounce.easeOut', y: 500, opacity: 0}, this.triggerElement );
-        Magic.animateElementWithTweenStagger(this.componentRefs, 1, {scale: 0.5, opacity: 0, delay: 0.5, ease: 'Elastic.easeOut', force3D: true}, this.triggerElement );
+        Magic.tweenParallax('#parallaxHeaderBg', this.triggerElement );
+        Magic.tweenFrom(this.textRefs, 2, { ease: 'Bounce.easeOut', y: 500, opacity: 0}, this.triggerElement );
+        Magic.tweenStagger(this.componentRefs, 1, {scale: 0.5, opacity: 0, delay: 0.5, ease: 'Elastic.easeOut', force3D: true}, this.triggerElement );
     }
 
     render() {
@@ -35,21 +36,16 @@ class Header extends Component {
             <div ref={this.getTrigger} className="container">
                 <div className="row">
 
-                    <div ref={this.addComponentRef} id="left" className="col-lg-6 col-md-6">
+                    <div ref={this.addComponentRef} id="left" className="col-lg-12">
                         <h1 ref={this.addTextRef} >Responsive Web Design</h1>
                         <p ref={this.addTextRef} >
-                            Design for the future, design for your business.
-                            Every company needs that online brochure to lure in those
-                            already hungry customers. More than 2.4 billion people use
-                            the internet every day, and some 90% of those are looking
-                            to buy a product. Create work with us and we'll put you on
-                            the Map!
+                            Professional full-stack developer with a strong fluency in Javascript, react, angular,
+                            node, and express. Each endeavor adding to the depth of my skill-set, from converting freelance jobs into a
+                            MERN / MEAN Stack environment, to game engines written in JS / Canvas. Each a stepping stones to the furthering of code innovation.
                         </p>
-                        <button className="btn btn-lg btn-primary">Buy Now</button>
-                        <button className="btn btn-lg btn-success">View Detail</button>
                     </div>
 
-                    <div ref={this.addComponentRef} id="right" className="col-lg-6 col-md-6">
+                    <div ref={this.addComponentRef} id="right" className="col-lg-12 hidden-xs hidden-sm hidden-md">
                         <img src="/images/Responsive-Web-Design.png" alt=""/>
                     </div>
                 </div>

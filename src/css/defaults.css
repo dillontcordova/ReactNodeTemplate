@@ -1,9 +1,11 @@
 * {
-  padding: 0;
-  margin: 0;
+  padding: 0; /* This is used to reset any browser-default padding's */
+  margin: 0; /* This is used to reset any browser-default margins */
 }
 
 body {
+  height:100vh; /* This is needed to overcome a Chrome bug. */
+  width:100vw;  /* As above. */
   overflow-x: hidden;
   font-family: 'Open Sans', sans-serif;
   text-rendering: optimizeLegibility !important;
@@ -11,7 +13,6 @@ body {
 }
 
 section {
-  min-height: 500px;
 }
 
 li {
