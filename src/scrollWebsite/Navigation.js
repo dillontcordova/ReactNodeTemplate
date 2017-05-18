@@ -26,11 +26,10 @@ class Navigation extends Component {
                     <div id="navHeaderCollapse" className="collapse navbar-collapse">
                         <ul data-toggle="collapse" data-target="#navHeaderCollapse" className="nav navbar-nav navbar-right">
                             <li><a onClick={()=>{ this.click('#header')     }} >Home</a></li>
-                            <li><a onClick={()=>{ this.click('#services')   }} >services</a></li>
-                            <li><a onClick={()=>{ this.click('#pricing')    }} >pricing</a></li>
-                            <li><a onClick={()=>{ this.click('#team')       }} >team</a></li>
-                            <li><a onClick={()=>{ this.click('#client')     }} >clients</a></li>
-                            <li><a onClick={()=>{ this.click('#contact')    }} >contact</a></li>
+                            <li><a onClick={()=>{ this.click('#services')   }} >Strengths</a></li>
+                            <li><a onClick={()=>{ this.click('#projects')   }} >Experience</a></li>
+                            <li><a onClick={()=>{ this.click('#client')     }} >Skills</a></li>
+                            <li><a onClick={()=>{ this.click('#contact')    }} >Contact</a></li>
                         </ul>
                     </div>
 

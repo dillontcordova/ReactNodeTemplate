@@ -12,10 +12,13 @@ class Footer extends Component {
                     <div className="row">
                         <div className="col-lg-12 col-md-12">
                             <h4>Stay in touch</h4>
-                            <i className="social fa fa-facebook" aria-hidden="true"/>
-                            <i className="social fa fa-linkedin" aria-hidden="true"/>
-                            <i className="social fa fa-youtube" aria-hidden="true"/>
-                            <i className="social fa fa-github" aria-hidden="true"/>
+                            <a href="https://www.linkedin.com/in/dilloncordova/">
+                                <i className="social fa fa-linkedin"/>
+                            </a>
+
+                            <a href="https://github.com/dillontcordova/">
+                                <i className="social fa fa-github"/>
+                            </a>
                         </div>
                     </div>
                 </div>

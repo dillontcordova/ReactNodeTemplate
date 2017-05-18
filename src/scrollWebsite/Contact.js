@@ -8,18 +8,35 @@ import Email from '../lib/Email';
 class Contact extends Component {
     constructor(_props) {
         super(_props);
+
+        this.state = {
+            emailFrom: '',
+            emailBody: '',
+            emailAddress: '',
+            emailSubject: ''
+        };
         this.textRefs = [];
         this.componentRefs = [];
         this.triggerElement = null;
     }
 
-    click = () => {
+    onChange = (_e) => {
+        let newState = {};
+        newState[_e.target.name] = _e.target.value;
+        this.setState(newState);
+    };
+
+    onSubmit = (event) => {
+        // event.preventDefault();
         //verification
-        Email.send( {
-            from : 'Dillon <dillontcordova@gmail.com>',
-            subject : 'Dillon\'s Test!',
-            text : 'Hello World'
+        //verify email and subject have all special chars removed
+        let from = 'From: ' + this.state.emailFrom + this.state.emailAddress;
+        Email.send({
+            from: from,
+            subject: this.state.emailSubject,
+            text: from + '\n\n' + this.state.emailBody
         });
+
     };
 
     getTrigger = (_ref) => {
@@ -45,42 +62,42 @@ class Contact extends Component {
                 <div className="row">
                     <h2 ref={this.addTextRef} >Contact</h2>
                     <p ref={this.addTextRef} >
-                        Lorem Ipsum passages, and more recently
-                        with desktop publishing software
+                        I'm currently accepting new projects and would love to hear about yours.
+                        Please take a few minutes to tell me about it.
                     </p>
 
-                    <div className="col-lg-6 col-md-6">
+                    <form onSubmit={this.onSubmit} name="asd">
+                        <div id="leftFormSide" className="col-lg-6 col-md-6">
 
-                        <div ref={this.addComponentRef} className="input-group input-group-lg">
-                                    <span className="input-group-addon" id="sizing-addon1">
-                                        <i className="fa fa-user"/>
-                                    </span>
-                            <input type="text" className="form-control" placeholder="Full Name"/>
+                            <div ref={this.addComponentRef} className="input-group input-group-lg">
+                                <span className="input-group-addon">
+                                    <i className="fa fa-user"/>
+                                </span>
+                                <input type="text" className="form-control" placeholder="Full Name" value={this.state.emailFrom} name="emailFrom" onChange={ this.onChange }/>
+                            </div>
+
+                            <div ref={this.addComponentRef} className="input-group input-group-lg">
+                                <span className="input-group-addon" >
+                                    <i className="fa fa-envelope"/>
+                                </span>
+                                <input type="text" className="form-control" placeholder="Email Address" value={this.state.emailAddress} name="emailAddress" onChange={ this.onChange } />
+                            </div>
+
+                            <div ref={this.addComponentRef} className="input-group input-group-lg">
+                                <span className="input-group-addon" >
+                                    <i className="fa fa-phone"/>
+                                </span>
+                                <input type="text" className="form-control" placeholder="Phone Number"/>
+                            </div>
                         </div>
 
-                        <div ref={this.addComponentRef} className="input-group input-group-lg">
-                                    <span className="input-group-addon" id="sizing-addon1">
-                                        <i className="fa fa-envelope" />
-                                    </span>
-                            <input type="text" className="form-control" placeholder="Email Address"/>
+                        <div id="rightFormSide" className="col-lg-6 col-md-6">
+                            <div className="input-group">
+                                <textarea ref={this.addComponentRef} cols="80" rows="4" className="form-control" placeholder="Message" value={this.state.emailBody} name="emailBody" onChange={ this.onChange } />
+                            </div>
+                            <input ref={this.addComponentRef} type="submit"  value="Submit" className="btn btn-lg"/>
                         </div>
-
-                        <div ref={this.addComponentRef} className="input-group input-group-lg">
-                                    <span className="input-group-addon" id="sizing-addon1">
-                                        <i className="fa fa-phone" />
-                                    </span>
-                            <input type="text" className="form-control" placeholder="Phone Number"/>
-                        </div>
-                    </div>
-
-                    <div className="col-lg-6 col-md-6">
-                        <div ref={this.addComponentRef} className="input-group">
-                            <textarea name="" id="" cols="80" rows="6" className="form-control"/>
-                        </div>
-                        <button onClick={this.click} ref={this.addComponentRef} className="btn btn-lg">
-                            Submit Your Message
-                        </button>
-                    </div>
+                    </form>
 
                 </div>
             </div>

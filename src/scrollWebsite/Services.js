@@ -33,37 +33,40 @@ class Services extends Component {
     render() {
         return (
             <div ref={this.getTrigger} className="container" >
+
+                <h2 ref={this.addTextRef} className="serviceTitleText">Strengths</h2>
+                <p ref={this.addTextRef} className="serviceTitleText">
+                    I've got chops in all phases of the design process.
+                </p>
+
                 <div className="row">
-                    <h2 ref={this.addTextRef} className="serviceTitleText">Strengths</h2>
-                    <p ref={this.addTextRef} className="serviceTitleText">
-                        Lorem Ipsum is simply dummy text of the
-                        printing and type setting dummy text
-                    </p>
-
-                    <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
-                        <i className='icon-database'/>
-                        <h4>Web design</h4>
-                        <p>Lorem Ipsum passages, and more recently with desktop publishing software</p>
+                    <div ref={this.addComponentRef} className="col-lg-4 col-md-4">
+                        <i className='fa fa-code'/>
+                        <h4>Code Development</h4>
+                        <p>
+                            Responsive development will help make your website easily accessible across all devices. Utilizing
+                            modern patterns like MEAN or MERN Stack to get the job done.
+                        </p>
                     </div>
 
-                    <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
-                        <i className='icon-database'/>
-                        <h4>Mobile Apps</h4>
-                        <p>Lorem Ipsum passages, and more recently with desktop publishing software</p>
+                    <div ref={this.addComponentRef} className="col-lg-4 col-md-4">
+                        <i className='fa fa-paint-brush'/>
+                        <h4>Website Design</h4>
+                        <p>
+                            I user interfaces focusing on content structure, intuitive UI patterns and
+                            simple interactions are key. As they say, less is more.
+                        </p>
                     </div>
 
-                    <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
-                        <i className='icon-database'/>
-                        <h4>Database</h4>
-                        <p>Lorem Ipsum passages, and more recently with desktop publishing software</p>
-                    </div>
+                    <div ref={this.addComponentRef} className="col-lg-4 col-md-4">
+                        <i className='fa fa-comments-o'/>
 
-                    <div ref={this.addComponentRef} className="col-lg-3 col-md-3">
-                        <i className='icon-database'/>
-                        <h4>Consulting</h4>
-                        <p>Lorem Ipsum passages, and more recently with desktop publishing software</p>
+                        <h4>Ideas</h4>
+                        <p>
+                            I collaborate with clients and peers to nurture and transform ideas into well thought out design specs.
+                            After all, that's where the majority of amazing user experiences start.
+                        </p>
                     </div>
-
                 </div>
             </div>
         )

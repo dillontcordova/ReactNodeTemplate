@@ -1,18 +1,12 @@
 /*FOOTER*/
 .footer {
-    padding: 30px;
-    color: #cccccc;
-    background-color: #222222;
     text-align: center;
+    padding: 30px 0 30px;
+    background-color: #222222;
 }
 
 .footer .social {
     font-size: 20px;
-    height: 30px;
-    width: 30px;
-    text-align: center;
-    padding: 5px;
-    border: 1px solid #cccccc;
-    margin-bottom: 10px;
-    margin-right: 5px;
+    padding: 10px;
+    color: antiquewhite;
 }

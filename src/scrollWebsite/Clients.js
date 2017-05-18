@@ -36,23 +36,23 @@ class Clients extends Component {
         return (
             <div ref={this.getTrigger} className="container">
                 <div className="row my-skills-icon">
-                    <h2 ref={this.addTextRef} >Trusted Skills</h2>
+                    <h2 ref={this.addTextRef} >Current Skillset</h2>
                     <p ref={this.addTextRef} >
                         Each useful in their own way.
                         All skills that can be used to further develop your product!
                     </p>
-                    <FontIcon ref={this.addComponentRef} fontClassName="icon-java" linkUrl="https://www.heroku.com/what"/>
+                    <FontIcon ref={this.addComponentRef} fontClassName="icon-java" linkUrl="https://www.oracle.com/java/index.html"/>
                     <FontIcon ref={this.addComponentRef} fontClassName="icon-cplusplus" linkUrl="http://www.cplusplus.com/info/faq/" color="blue"/>
-                    <FontIcon ref={this.addComponentRef} fontClassName="icon-javascript-alt" linkUrl="#" color="gold"/>
-                    <FontIcon ref={this.addComponentRef} fontClassName="icon-mongodb" linkUrl="#" color="green"/>
-                    <FontIcon ref={this.addComponentRef} fontClassName="icon-heroku" linkUrl="#" color="purple"/>
-                    <FontIcon ref={this.addComponentRef} fontClassName="icon-git" linkUrl="#" color="darkred"/>
-                    <FontIcon ref={this.addComponentRef} fontClassName="icon-nodejs" linkUrl="#" color="green"/>
-                    <FontIcon ref={this.addComponentRef} fontClassName="icon-angular-alt" linkUrl="#" color="red"/>
-                    <FontIcon ref={this.addComponentRef} fontClassName="icon-css3-alt" linkUrl="#" color="royalblue"/>
-                    <FontIcon ref={this.addComponentRef} fontClassName="icon-reactjs" linkUrl="#" color="deepskyblue"/>
-                    <FontIcon ref={this.addComponentRef} fontClassName="icon-html5-alt" linkUrl="#" color="orange"/>
-                    <FontIcon ref={this.addComponentRef} fontClassName="icon-bootstrap" linkUrl="#" color="purple"/>
+                    <FontIcon ref={this.addComponentRef} fontClassName="icon-javascript-alt" linkUrl="https://www.javascript.com/" color="gold"/>
+                    <FontIcon ref={this.addComponentRef} fontClassName="icon-mongodb" linkUrl="https://www.mongodb.com/" color="green"/>
+                    <FontIcon ref={this.addComponentRef} fontClassName="icon-heroku" linkUrl="https://www.heroku.com/what" color="purple"/>
+                    <FontIcon ref={this.addComponentRef} fontClassName="icon-git" linkUrl="https://git-scm.com/" color="darkred"/>
+                    <FontIcon ref={this.addComponentRef} fontClassName="icon-nodejs" linkUrl="https://nodejs.org/en/" color="green"/>
+                    <FontIcon ref={this.addComponentRef} fontClassName="icon-angular-alt" linkUrl="https://angularjs.org/" color="red"/>
+                    <FontIcon ref={this.addComponentRef} fontClassName="icon-css3-alt" linkUrl="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" color="royalblue"/>
+                    <FontIcon ref={this.addComponentRef} fontClassName="icon-reactjs" linkUrl="https://facebook.github.io/react/" color="deepskyblue"/>
+                    <FontIcon ref={this.addComponentRef} fontClassName="icon-html5-alt" linkUrl="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" color="orange"/>
+                    <FontIcon ref={this.addComponentRef} fontClassName="icon-bootstrap" linkUrl="http://getbootstrap.com/" color="purple"/>
                 </div>
             </div>
         );

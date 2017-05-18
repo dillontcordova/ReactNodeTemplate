@@ -1,5 +1,5 @@
 /*HEADER*/
-.header {
+#header {
     color: #fff;
     width: 100%;
     height: 100vh;
@@ -10,34 +10,79 @@
     text-align: center;
 }
 
-.header h1 {
+#header .title{
     margin-top: 75px;
     font-size: 40px;
     font-weight: 700;
     padding-top: 30px;
 }
 
-.header p {
+#header .summary{
     margin-top: 75px;
     font-size: 20px;
 }
 
-.header img {
-    margin-top: 125px;
+#header img {
+    margin-top: 50px;
     height: 350px;
-    width: 450px;
+    width: 350px;
+}
+#header .img-description{
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+    visibility: hidden;
+    transition: opacity .2s, visibility .2s;
+}
+#header .hire-me{
+    opacity: .8;
+    transition: all 0.3s ease;
+}
+#header .hire-me:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+#header .hire-me:hover .img-description {
+    visibility: visible;
+    opacity: 1;
+}
+
+#header .learn-more{
+    margin-top: 175px;
+    font-size: x-large;
+    transition: all 0.5s ease;
+}
+#header .learn-more:hover{
+    color: #000;
+    font-size: xx-large;
+    cursor: pointer;
 }
 
 @media(max-width:768px) {
-    .header {
+    #header {
         padding: 30px;
     }
 
-    .header h1 {
+    #header .title{
+        margin-top: 30px;
         font-size: 30px;
     }
-
-    .header p {
-        font-size: 15px;
+    #header .summary{
+        margin-top: 50px;
+        text-align: left;
+        font-size: 17px;
+    }
+    #header .hire-me{
+        margin-top: 50px;
+    }
+    #header .learn-more{
+        color: #fff;
+        margin-top: 75px;
+        font-size: x-large;
+        transition: all 0.5s ease;
     }
 }

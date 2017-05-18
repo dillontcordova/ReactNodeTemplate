@@ -3,8 +3,9 @@ import React, {Component} from 'react';
 import Navigation from './Navigation';
 import Header from './Header';
 import Services from './Services';
-import Pricing from './Pricing';
-import Team from './Team';
+import Projects from './Projects';
+// import Pricing from './Pricing';
+// import Team from './Team';
 import Clients from './Clients';
 import Contact from './Contact';
 import Footer from './Footer';
@@ -18,7 +19,7 @@ class PageLayout extends Component {
             <div>
                 <Navigation/>
 
-                <section id="header" className="header" >
+                <section id="header" >
                     <Header />
                 </section>
 
@@ -26,14 +27,13 @@ class PageLayout extends Component {
                     <Services />
                 </section>
 
-
-                <section id="pricing" className="pricing" >
-                    <Pricing/>
+                <section id="projects" className="projects" >
+                    <Projects/>
                 </section>
 
-                <section id="team" className="team"  >
-                    <Team/>
-                </section>
+                {/*<section id="team" className="team"  >*/}
+                    {/*<Team/>*/}
+                {/*</section>*/}
 
                 <section id="client" className="clients" >
                     <Clients/>

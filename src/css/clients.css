@@ -1,13 +1,16 @@
 /*CLIENTS*/
 .clients {
+    color: white;
     padding: 50px 0 80px;
-    background-color: cornflowerblue;
     text-align: center;
-    color: #fff;
+    background-color: black;
+    background-image: url(/images/skills.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .client h2 {
-    color: #5e5e5e;
 }
 
 .clients p {
@@ -20,7 +23,6 @@
     cursor: pointer;
     margin: 40px 0;
 }
-
 
 .clients li:hover img {
     opacity: 1;
