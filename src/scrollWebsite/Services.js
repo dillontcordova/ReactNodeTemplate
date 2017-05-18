@@ -36,7 +36,7 @@ class Services extends Component {
 
                 <h2 ref={this.addTextRef} className="serviceTitleText">Strengths</h2>
                 <p ref={this.addTextRef} className="serviceTitleText">
-                    I've got chops in all phases of the design process.
+                    I have the skills in all phases of the designing process.
                 </p>
 
                 <div className="row">
@@ -53,7 +53,7 @@ class Services extends Component {
                         <i className='fa fa-paint-brush'/>
                         <h4>Website Design</h4>
                         <p>
-                            I user interfaces focusing on content structure, intuitive UI patterns and
+                            I build user interfaces focusing on content structure, intuitive UI patterns and
                             simple interactions are key. As they say, less is more.
                         </p>
                     </div>
