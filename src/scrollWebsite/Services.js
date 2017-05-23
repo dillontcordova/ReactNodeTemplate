@@ -26,6 +26,8 @@ class Services extends Component {
     };
 
     componentDidMount() {
+
+        Magic.tweenParallax('#parallaxHeaderBg', this.triggerElement );
         Magic.tweenFrom(this.textRefs, 1, { opacity: 0, scaleX: -1, y: 500}, this.triggerElement );
         Magic.tweenStagger(this.componentRefs, 1, {scale: 0.5, opacity: 0, delay: 0.5, ease: 'Elastic.easeOut', force3D: true}, this.triggerElement );
     }
@@ -33,7 +35,7 @@ class Services extends Component {
     render() {
         return (
             <section id="services" ref={this.getTrigger} className="container" >
-
+                <div id="parallaxHeaderBg"/>
                 <div className="row">
                     <h2 ref={this.addTextRef} className="serviceTitleText">Strengths</h2>
                     <p ref={this.addTextRef} className="serviceTitleText">
