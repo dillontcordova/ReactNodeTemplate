@@ -1,37 +1,23 @@
 /*SERVICES*/
-.services {
-    padding: 50px 0 80px;
-    text-align: center;
-}
-
-.services h2,
-.services h4 {
+#services {
+  padding: 50px 0 80px;
+  text-align: center; }
+  #services h2, #services h4 {
     color: dimgrey;
-    margin: 20px 0 20px;
-}
-
-.services p {
+    margin: 20px 0 20px; }
+  #services p {
     color: dimgrey;
     font-size: 14px;
-    padding-bottom: 40px;
-}
-
-
-.services i {
+    padding-bottom: 40px; }
+  #services i {
     font-size: 5em;
     border-radius: 75%;
-    color: yellow;
-}
+    color: yellow; }
+  #services .fa {
+    color: indianred; }
 
-.services .fa{
-    color: indianred;
-}
+@media (max-width: 768px) {
+  #services {
+    padding: 30px; } }
 
-
-@media(max-width:768px) {
-    .services {
-        padding: 30px;
-    }
-}
-
-
+/*# sourceMappingURL=services.css.map */

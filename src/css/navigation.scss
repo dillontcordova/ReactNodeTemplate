@@ -1,23 +1,36 @@
+@mixin gradientBackground($direction: top, $rgbaColorFrom: rgba(0, 0, 0, 0), $rgbaColorTo: rgba(0, 0, 0, 1)) {
+    background: -webkit-linear-gradient(to $direction, $rgbaColorFrom, $rgbaColorTo);
+    background: -moz-linear-gradient(to $direction, $rgbaColorFrom, $rgbaColorTo);
+    background: -ms-linear-gradient(to $direction, $rgbaColorFrom, $rgbaColorTo);
+    background: -o-linear-gradient(to $direction, $rgbaColorFrom, $rgbaColorTo);
+    background: linear-gradient(to $direction, $rgbaColorFrom, $rgbaColorTo);
+}
+
 /*NAVIGATION*/
 #navigation {
-    background-color: transparent;
-    text-transform: uppercase;
     font-family: 'PT Sans Narrow', Arial, sans-serif;
+    @include gradientBackground();
+    text-transform: uppercase;
+    border: none;
 
-    #home-image {
-        width: 100%;
-        cursor: pointer;
-    }
+    #navHeaderCollapse {
+        margin-top: 20px;
 
-    a{
-        color: #fff;
-        cursor: pointer;
-        display: inline-block;
-        opacity: 0.7;
-        &:hover {
-            opacity: 1;
-            background-color: #111111;
+        .home-image {
+            width: 13%;
+            cursor: pointer;
+        }
 
+        ul a{
+            color: #fff;
+            opacity: 0.8;
+            font-size: 17px;
+            cursor: pointer;
+            display: inline-block;
+            &:hover {
+                opacity: 1;
+                background-color: #111111;
+            }
         }
     }
 }

@@ -2,11 +2,14 @@
     top: $percentageY;
     left: $percentageX;
     position: $position;
+    overflow: hidden;
+
     width: 100 - $percentageX;
     @if($exact == false) {
         -webkit-transform: translate(-$percentageX, -$percentageY);
         -moz-transform: translate(-$percentageX, -$percentageY);
         -ms-transform: translate(-$percentageX, -$percentageY);
+        -o-transform: translate(-$percentageX, -$percentageY);
         transform: translate(-$percentageX, -$percentageY);
     }
 }
@@ -26,17 +29,15 @@ $defaultHeaderHeight: 100vh;
     background-image: url(http://genkoreanbbq.com/wp-content/uploads/2015/05/mainpic_b1.jpg);
 
     .welcome-title{
-        display: block;
         @include center-align(42%, 60%);
 
         #welcome{
             font-family: 'Dancing Script', cursive;
             font-size: 45px;
-            color: #b99256;
+            color: #c69e5c;
         }
         #gen{
             font-size: 60px;
-
         }
         #premium{
             font-size: 30px;

@@ -9,9 +9,7 @@ class SiteWrapper extends Component {
     render() {
         return (
             <div>
-                <section id="navigation">
-                    <Navigation />
-                </section>
+                <Navigation />
 
                 {this.props.children}
 

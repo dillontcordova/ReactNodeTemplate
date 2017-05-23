@@ -32,12 +32,14 @@ class Services extends Component {
 
     render() {
         return (
-            <div ref={this.getTrigger} className="container" >
+            <section id="services" ref={this.getTrigger} className="container" >
 
-                <h2 ref={this.addTextRef} className="serviceTitleText">Strengths</h2>
-                <p ref={this.addTextRef} className="serviceTitleText">
-                    I have the skills in all phases of the designing process.
-                </p>
+                <div className="row">
+                    <h2 ref={this.addTextRef} className="serviceTitleText">Strengths</h2>
+                    <p ref={this.addTextRef} className="serviceTitleText">
+                        I have the skills in all phases of the designing process.
+                    </p>
+                </div>
 
                 <div className="row">
                     <div ref={this.addComponentRef} className="col-lg-4 col-md-4">
@@ -68,7 +70,7 @@ class Services extends Component {
                         </p>
                     </div>
                 </div>
-            </div>
+            </section>
         )
     }
 }

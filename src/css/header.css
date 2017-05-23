@@ -19,19 +19,20 @@
         }
     }*/ }
   #header .welcome-title {
-    display: block;
     top: 60%;
     left: 42%;
     position: relative;
+    overflow: hidden;
     width: 58%;
     -webkit-transform: translate(-42%, -60%);
     -moz-transform: translate(-42%, -60%);
     -ms-transform: translate(-42%, -60%);
+    -o-transform: translate(-42%, -60%);
     transform: translate(-42%, -60%); }
     #header .welcome-title #welcome {
       font-family: 'Dancing Script', cursive;
       font-size: 45px;
-      color: #b99256; }
+      color: #c69e5c; }
     #header .welcome-title #gen {
       font-size: 60px; }
     #header .welcome-title #premium {

@@ -14,20 +14,20 @@ class Navigation extends Component {
 
     render() {
         return (
-            <nav className="navbar navbar-fixed-top" >
+            <nav id="navigation" className="navbar navbar-fixed-top" >
                 <div className="container">
                     <div className="row">
 
-                        <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navHeaderCollapse">
+                        <button type="button" className="navbar-toggle  collapsed" data-toggle="collapse" data-target="#navHeaderCollapse">
                             <span className="icon-bar"/>
                             <span className="icon-bar"/>
                             <span className="icon-bar"/>
                         </button>
 
                         <div id="navHeaderCollapse" className="collapse navbar-collapse">
-                            <span id="home-image">
-                                <img onClick={()=>{ this.click('#header') }} src="http://genkoreanbbq.com/wp-content/uploads/2015/10/logo_w1.png" alt=""/>
-                            </span>
+                            <a onClick={()=>{ this.click('#header') }} >
+                                <img className="home-image" src="http://genkoreanbbq.com/wp-content/uploads/2015/10/logo_w1.png" alt=""/>
+                            </a>
 
                             <ul data-toggle="collapse" data-target="#navHeaderCollapse" className="nav navbar-nav navbar-right">
                                 <li><a id="poop" onClick={()=>{ this.click('#header')     }} >Home</a></li>

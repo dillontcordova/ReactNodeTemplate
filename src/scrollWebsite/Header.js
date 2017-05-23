@@ -26,7 +26,7 @@ class Header extends Component {
     };
 
     componentDidMount() {
-        Magic.tweenStagger(['#header', ], .25, {opacity: 0, scale: 0.25}, this.triggerElement );
+        Magic.tweenStagger(['#header', '.welcome-title'], .25, {opacity: 0, scale: 0.25}, this.triggerElement, .5 );
     }
 
     scrollDownToHire = () => {
@@ -49,9 +49,8 @@ class Header extends Component {
 
                     <div ref={this.addTextRef} id="gen">
                         <strong>
-                            Gen Korean B.B.Q.
+                            GEN KOREAN B.B.Q. RESTAURANT
                         </strong>
-                            Restaurant
                     </div>
 
                     <div ref={this.addTextRef} id="premium">

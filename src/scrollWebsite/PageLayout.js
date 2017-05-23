@@ -11,12 +11,9 @@ class PageLayout extends Component {
         return (
             <div id="home-page">
 
-                    <Header />
+                <Header />
 
-
-                <section id="services" className="services">
-                    <Services />
-                </section>
+                <Services />
 
                 <section id="projects" className="projects" >
                     <Projects/>

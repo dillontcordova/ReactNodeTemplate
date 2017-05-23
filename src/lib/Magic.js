@@ -48,12 +48,12 @@ class Magic {
     }
 
 
-    static tweenStagger(_element, _duration, _tweenObj, _triggerElement) {
+    static tweenStagger(_element, _duration, _tweenObj, _triggerElement, _delayBetween) {
         let scene = new ScrollMagic.Scene({
             triggerElement: _triggerElement || _element,
             reverse: false
         });
-        scene.setTween( TweenMax.staggerFrom(_element, _duration, _tweenObj, .1) );
+        scene.setTween( TweenMax.staggerFrom(_element, _duration, _tweenObj, _delayBetween || .1) );
         process.env.NODE_ENV === 'development' && scene.addIndicators();
         scene.addTo( this.getController() );
     }

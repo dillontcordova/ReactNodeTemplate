@@ -1,0 +1,32 @@
+/*SERVICES*/
+#services {
+    padding: 50px 0 80px;
+    text-align: center;
+
+    h2, h4 {
+        color: dimgrey;
+        margin: 20px 0 20px;
+    }
+    p {
+        color: dimgrey;
+        font-size: 14px;
+        padding-bottom: 40px;
+    }
+    i {
+        font-size: 5em;
+        border-radius: 75%;
+        color: yellow;
+    }
+
+    .fa{
+        color: indianred;
+    }
+}
+
+@media(max-width:768px) {
+    #services {
+        padding: 30px;
+    }
+}
+
+
