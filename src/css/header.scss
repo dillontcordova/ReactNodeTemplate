@@ -1,0 +1,87 @@
+@mixin center-align($percentageX: 50%, $percentageY: 50%, $exact: false, $position: relative) {
+    top: $percentageY;
+    left: $percentageX;
+    position: $position;
+    width: 100 - $percentageX;
+    @if($exact == false) {
+        -webkit-transform: translate(-$percentageX, -$percentageY);
+        -moz-transform: translate(-$percentageX, -$percentageY);
+        -ms-transform: translate(-$percentageX, -$percentageY);
+        transform: translate(-$percentageX, -$percentageY);
+    }
+}
+
+/*HEADER*/
+$defaultTextColor: #fff;
+$defaultHeaderWidth: 100vw;
+$defaultHeaderHeight: 100vh;
+
+#header {
+    text-align: left;
+    color: $defaultTextColor;
+    width: $defaultHeaderWidth;
+    height: $defaultHeaderHeight;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(http://genkoreanbbq.com/wp-content/uploads/2015/05/mainpic_b1.jpg);
+
+    .welcome-title{
+        display: block;
+        @include center-align(42%, 60%);
+
+        #welcome{
+            font-family: 'Dancing Script', cursive;
+            font-size: 45px;
+            color: #b99256;
+        }
+        #gen{
+            font-size: 60px;
+
+        }
+        #premium{
+            font-size: 30px;
+        }
+    }
+
+    /*.learn-more {
+        margin-top: 175px;
+        font-size: x-large;
+        transition: all 0.5s ease;
+
+        &:hover {
+            color: #000;
+            font-size: xx-large;
+            cursor: pointer;
+        }
+    }*/
+}
+
+@media(max-width: 768px) {
+    #header {
+        padding: 30px;
+
+        .summary {
+            margin-top: 50px;
+            text-align: left;
+            font-size: 17px;
+        }
+        .learn-more {
+            margin-top: 75px;
+        }
+    }
+}
+
+/*
+.panel {
+    border: dashed;
+}
+
+.little-panel {
+    @extend .panel;
+    font-size: 12em;
+}
+
+.big-panel {
+    @extend .panel;
+    font-size: 32em;
+}*/

@@ -1,27 +1,18 @@
 import React, {Component} from 'react';
-// import WebSection from '../lib/WebSection';
-import Navigation from './Navigation';
 import Header from './Header';
 import Services from './Services';
 import Projects from './Projects';
-// import Pricing from './Pricing';
-// import Team from './Team';
 import Clients from './Clients';
 import Contact from './Contact';
-import Footer from './Footer';
-
 
 class PageLayout extends Component {
 
     render() {
-
         return (
-            <div>
-                <Navigation/>
+            <div id="home-page">
 
-                <section id="header" >
                     <Header />
-                </section>
+
 
                 <section id="services" className="services">
                     <Services />
@@ -31,10 +22,6 @@ class PageLayout extends Component {
                     <Projects/>
                 </section>
 
-                {/*<section id="team" className="team"  >*/}
-                    {/*<Team/>*/}
-                {/*</section>*/}
-
                 <section id="client" className="clients" >
                     <Clients/>
                 </section>
@@ -42,11 +29,6 @@ class PageLayout extends Component {
                 <section id="contact" className="contact" >
                     <Contact/>
                 </section>
-
-                <section id="footer" className="footer" >
-                    <Footer/>
-                </section>
-
             </div>
         )
     };

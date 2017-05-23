@@ -1,0 +1,23 @@
+/*NAVIGATION*/
+#navigation {
+    background-color: transparent;
+    text-transform: uppercase;
+    font-family: 'PT Sans Narrow', Arial, sans-serif;
+
+    #home-image {
+        width: 100%;
+        cursor: pointer;
+    }
+
+    a{
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        opacity: 0.7;
+        &:hover {
+            opacity: 1;
+            background-color: #111111;
+
+        }
+    }
+}

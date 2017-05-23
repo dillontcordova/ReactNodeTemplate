@@ -2,14 +2,15 @@
  * Created by dillo_000 on 2/23/2017.
  */
 import React from 'react';
-import {Router, Route, browserHistory, IndexRedirect/*, IndexRoute*/} from 'react-router';
+import {Router, Route, browserHistory, IndexRedirect, IndexRoute} from 'react-router';
+import SiteWrapper from './scrollWebsite/SiteWrapper';
 import PageLayout from './scrollWebsite/PageLayout';
 
 const Routes = (props) => {
     return (
         <Router history={browserHistory}>
-            <Route path="/" component={PageLayout}> {/* Page specified by "Route" and "path" */}
-                {/*<IndexRoute component={App}/> /!* Directive specified by "IndexRoute" *!/*/}
+            <Route path="/" component={SiteWrapper}> {/*  <Route path="/" ...  is shown on every page*/}
+                <IndexRoute component={PageLayout}/> {/* "IndexRoute" is the home page*/}
                 {/*<Route path="/custom" component={Custom}/>*/}
             </Route>
 

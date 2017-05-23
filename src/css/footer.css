@@ -1,11 +1,11 @@
 /*FOOTER*/
-.footer {
+#footer {
     text-align: center;
     padding: 30px 0 30px;
     background-color: #222222;
 }
 
-.footer .social {
+#footer .social {
     font-size: 20px;
     padding: 10px;
     color: antiquewhite;

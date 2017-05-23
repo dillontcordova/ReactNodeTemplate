@@ -1,51 +1,64 @@
 /*HEADER*/
 #header {
-    color: #fff;
-    width: 100%;
-    height: 100vh;
-    background-image: url(http://genkoreanbbq.com/wp-content/uploads/2015/05/mainpic_b1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    text-align: left;
-}
-
-
-#header .summary{
-    font-family: 'Dancing Script', cursive;
-    font-size: 60px;
-    color: #cfa670;
-
-
-    top: 50%;
-    position: relative;
-    transform: perspective(1px) translateY(-50%);
-}
-
-#header .learn-more{
-    margin-top: 175px;
-    font-size: x-large;
-    transition: all 0.5s ease;
-}
-#header .learn-more:hover{
-    color: #000;
-    font-size: xx-large;
-    cursor: pointer;
-}
-
-@media(max-width:768px) {
-    #header {
-        padding: 30px;
-    }
-
-    #header .summary{
-        margin-top: 50px;
-        text-align: left;
-        font-size: 17px;
-    }
-    #header .learn-more{
-        color: #fff;
-        margin-top: 75px;
+  text-align: left;
+  color: #fff;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(http://genkoreanbbq.com/wp-content/uploads/2015/05/mainpic_b1.jpg);
+    /*.learn-more {
+        margin-top: 175px;
         font-size: x-large;
         transition: all 0.5s ease;
-    }
+
+        &:hover {
+            color: #000;
+            font-size: xx-large;
+            cursor: pointer;
+        }
+    }*/ }
+  #header .welcome-title {
+    display: block;
+    top: 60%;
+    left: 42%;
+    position: relative;
+    width: 58%;
+    -webkit-transform: translate(-42%, -60%);
+    -moz-transform: translate(-42%, -60%);
+    -ms-transform: translate(-42%, -60%);
+    transform: translate(-42%, -60%); }
+    #header .welcome-title #welcome {
+      font-family: 'Dancing Script', cursive;
+      font-size: 45px;
+      color: #b99256; }
+    #header .welcome-title #gen {
+      font-size: 60px; }
+    #header .welcome-title #premium {
+      font-size: 30px; }
+
+@media (max-width: 768px) {
+  #header {
+    padding: 30px; }
+    #header .summary {
+      margin-top: 50px;
+      text-align: left;
+      font-size: 17px; }
+    #header .learn-more {
+      margin-top: 75px; } }
+/*
+.panel {
+    border: dashed;
 }
+
+.little-panel {
+    @extend .panel;
+    font-size: 12em;
+}
+
+.big-panel {
+    @extend .panel;
+    font-size: 32em;
+}*/
+
+/*# sourceMappingURL=header.css.map */

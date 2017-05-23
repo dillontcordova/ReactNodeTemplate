@@ -8,12 +8,10 @@ body {
   height:100vh; /* This is needed to overcome a Chrome bug. */
   width:100vw;  /* As above. */
   overflow-x: hidden;
+  background-color: #383838;
   font-family: 'Open Sans', sans-serif;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
-}
-
-section {
 }
 
 li {
@@ -26,7 +24,6 @@ a {
 }
 
 a:hover, a:active {
-
   text-decoration: none;
 }
 
@@ -47,7 +44,6 @@ p {
 }
 
 .btn:hover {
-
   background-color: #ededed !important;
   color: #3c3c3c !important;
   border: 1px solid #fff !important;
