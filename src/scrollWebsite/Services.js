@@ -26,50 +26,50 @@ class Services extends Component {
     };
 
     componentDidMount() {
-
-        Magic.tweenParallax('#parallaxHeaderBg', this.triggerElement );
         Magic.tweenFrom(this.textRefs, 1, { opacity: 0, scaleX: -1, y: 500}, this.triggerElement );
         Magic.tweenStagger(this.componentRefs, 1, {scale: 0.5, opacity: 0, delay: 0.5, ease: 'Elastic.easeOut', force3D: true}, this.triggerElement );
+
     }
 
     render() {
         return (
-            <section id="services" ref={this.getTrigger} className="container" >
-                <div id="parallaxHeaderBg"/>
-                <div className="row">
-                    <h2 ref={this.addTextRef} className="serviceTitleText">Strengths</h2>
-                    <p ref={this.addTextRef} className="serviceTitleText">
-                        I have the skills in all phases of the designing process.
-                    </p>
-                </div>
-
-                <div className="row">
-                    <div ref={this.addComponentRef} className="col-lg-4 col-md-4">
-                        <i className='fa fa-code'/>
-                        <h4>Code Development</h4>
-                        <p>
-                            Responsive development will help make your website easily accessible across all devices. Utilizing
-                            modern patterns like MEAN or MERN Stack to get the job done.
+            <section id="services" ref={this.getTrigger} >
+                <div className="container" >
+                    <div className="row">
+                        <h2 ref={this.addTextRef} className="serviceTitleText">Strengths</h2>
+                        <p ref={this.addTextRef} className="serviceTitleText">
+                            I have the skills in all phases of the designing process.
                         </p>
                     </div>
 
-                    <div ref={this.addComponentRef} className="col-lg-4 col-md-4">
-                        <i className='fa fa-paint-brush'/>
-                        <h4>Website Design</h4>
-                        <p>
-                            I build user interfaces focusing on content structure, intuitive UI patterns and
-                            simple interactions are key. As they say, less is more.
-                        </p>
-                    </div>
+                    <div className="row">
+                        <div ref={this.addComponentRef} className="col-lg-4 col-md-4">
+                            <i className='fa fa-code'/>
+                            <h4>Code Development</h4>
+                            <p>
+                                Responsive development will help make your website easily accessible across all devices. Utilizing
+                                modern patterns like MEAN or MERN Stack to get the job done.
+                            </p>
+                        </div>
 
-                    <div ref={this.addComponentRef} className="col-lg-4 col-md-4">
-                        <i className='fa fa-comments-o'/>
+                        <div ref={this.addComponentRef} className="col-lg-4 col-md-4">
+                            <i className='fa fa-paint-brush'/>
+                            <h4>Website Design</h4>
+                            <p>
+                                I build user interfaces focusing on content structure, intuitive UI patterns and
+                                simple interactions are key. As they say, less is more.
+                            </p>
+                        </div>
 
-                        <h4>Ideas</h4>
-                        <p>
-                            I collaborate with clients and peers to nurture and transform ideas into well thought out design specs.
-                            After all, that's where the majority of amazing user experiences start.
-                        </p>
+                        <div ref={this.addComponentRef} className="col-lg-4 col-md-4">
+                            <i className='fa fa-comments-o'/>
+
+                            <h4>Ideas</h4>
+                            <p>
+                                I collaborate with clients and peers to nurture and transform ideas into well thought out design specs.
+                                After all, that's where the majority of amazing user experiences start.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>

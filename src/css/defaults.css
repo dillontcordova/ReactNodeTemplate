@@ -8,7 +8,7 @@ body {
   height:100vh; /* This is needed to overcome a Chrome bug. */
   width:100vw;  /* As above. */
   overflow-x: hidden;
-  background-color: #383838;
+  background-color: #23232f;
   font-family: 'Open Sans', sans-serif;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;

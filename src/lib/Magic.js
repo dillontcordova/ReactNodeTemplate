@@ -79,13 +79,26 @@ class Magic {
 
     }
 
-    static tweenParallax(_element, _triggerElement) {
+    static tweenParallax(_parallaxElement, _parentElement, _triggerElement) {
+        TweenMax.set(_parallaxElement, {
+            position: 'absolute',
+            width: '100%',
+            height: '275%',
+            left: 0,
+            top: 0
+        });
+
+        TweenMax.set(_parentElement, {
+            position: 'relative',
+            overflow: 'hidden'
+        });
+
         let scene = new ScrollMagic.Scene({
             triggerElement: _triggerElement,
             triggerHook: 2,
             duration: '150%'
         });
-        scene.setTween( TweenMax.from(_element, 1, {y: '-50%', ease: 'Power0.easeNone'}) );
+        scene.setTween( TweenMax.from(_parallaxElement, 1, {y: '-50%', ease: 'Power0.easeNone'}) );
         process.env.NODE_ENV === 'development' && scene.addIndicators();
         scene.addTo( this.getController() );
     }
