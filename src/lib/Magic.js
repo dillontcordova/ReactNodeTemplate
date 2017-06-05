@@ -79,7 +79,7 @@ class Magic {
 
     }
 
-    static tweenParallax(_parallaxElement, _parentElement, _triggerElement) {
+    static tweenParallax(_parallaxElement, _parentElement, _isBackground, _triggerElement) {
         TweenMax.set(_parallaxElement, {
             position: 'absolute',
             width: '100%',
@@ -88,10 +88,15 @@ class Magic {
             top: 0
         });
 
+        if(_isBackground) {
+
+        }
         TweenMax.set(_parentElement, {
             position: 'relative',
-            overflow: 'hidden'
+            overflow: _isBackground ? 'hidden': 'initial'
         });
+        // (_isBackground && 'hidden') || 'initial';
+        // _isBackground ? 'hidden': 'initial';
 
         let scene = new ScrollMagic.Scene({
             triggerElement: _triggerElement,
