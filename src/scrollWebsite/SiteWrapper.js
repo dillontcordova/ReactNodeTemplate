@@ -13,9 +13,7 @@ class SiteWrapper extends Component {
 
                 {this.props.children}
 
-                <section id="footer">
-                    <Footer/>
-                </section>
+                <Footer/>
             </div>
         );
     }

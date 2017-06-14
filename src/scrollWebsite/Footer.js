@@ -7,7 +7,7 @@ class Footer extends Component {
 
     render() {
         return (
-            <div id="footer" className="footer">
+            <section id="footer" className="footer">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12 col-md-12">
@@ -22,7 +22,7 @@ class Footer extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         );
     }
 }

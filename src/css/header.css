@@ -6,18 +6,7 @@
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(http://genkoreanbbq.com/wp-content/uploads/2015/05/mainpic_b1.jpg);
-    /*.learn-more {
-        margin-top: 175px;
-        font-size: x-large;
-        transition: all 0.5s ease;
-
-        &:hover {
-            color: #000;
-            font-size: xx-large;
-            cursor: pointer;
-        }
-    }*/ }
+  background-image: url(http://genkoreanbbq.com/wp-content/uploads/2015/05/mainpic_b1.jpg); }
   #header .welcome-title {
     top: 60%;
     left: 42%;
@@ -37,6 +26,16 @@
       font-size: 60px; }
     #header .welcome-title #premium {
       font-size: 30px; }
+  #header .learn-more {
+    bottom: 0;
+    position: absolute;
+    text-align: center;
+    font-size: x-large;
+    transition: all 0.5s ease; }
+    #header .learn-more:hover {
+      color: #000;
+      font-size: xx-large;
+      cursor: pointer; }
 
 @media (max-width: 768px) {
   #header {
@@ -47,19 +46,5 @@
       font-size: 17px; }
     #header .learn-more {
       margin-top: 75px; } }
-/*
-.panel {
-    border: dashed;
-}
-
-.little-panel {
-    @extend .panel;
-    font-size: 12em;
-}
-
-.big-panel {
-    @extend .panel;
-    font-size: 32em;
-}*/
 
 /*# sourceMappingURL=header.css.map */

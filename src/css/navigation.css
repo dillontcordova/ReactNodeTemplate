@@ -13,6 +13,8 @@
     #navigation #navHeaderCollapse .home-image {
       width: 13%;
       cursor: pointer; }
+    #navigation #navHeaderCollapse button {
+      color: #fff; }
     #navigation #navHeaderCollapse ul a {
       color: #fff;
       opacity: 0.8;

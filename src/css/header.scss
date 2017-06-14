@@ -44,8 +44,10 @@ $defaultHeaderHeight: 100vh;
         }
     }
 
-    /*.learn-more {
-        margin-top: 175px;
+    .learn-more {
+        bottom: 0;
+        position: absolute;
+        text-align: center;
         font-size: x-large;
         transition: all 0.5s ease;
 
@@ -54,7 +56,7 @@ $defaultHeaderHeight: 100vh;
             font-size: xx-large;
             cursor: pointer;
         }
-    }*/
+    }
 }
 
 @media(max-width: 768px) {
@@ -71,18 +73,3 @@ $defaultHeaderHeight: 100vh;
         }
     }
 }
-
-/*
-.panel {
-    border: dashed;
-}
-
-.little-panel {
-    @extend .panel;
-    font-size: 12em;
-}
-
-.big-panel {
-    @extend .panel;
-    font-size: 32em;
-}*/

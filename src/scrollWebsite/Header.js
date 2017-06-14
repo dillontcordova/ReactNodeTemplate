@@ -26,7 +26,7 @@ class Header extends Component {
     };
 
     componentDidMount() {
-        Magic.tweenStagger(['#header', '.welcome-title'], .25, {opacity: 0, scale: 0.25}, this.triggerElement, .5 );
+        Magic.tweenStagger(['#header', '.welcome-title'], .25, {opacity: 0, scale: 0.25}, this.triggerElement, .5);
     }
 
     scrollDownToHire = () => {
@@ -59,8 +59,8 @@ class Header extends Component {
                         </strong>
                     </div>
                 </div>
-               {/* <div onClick={this.scrollDown} className="learn-more col-lg-12">
-                    <p ref={this.addTextRef} >
+                {/*<div onClick={this.scrollDown} className="learn-more col-lg-12">
+                    <p ref={this.addTextRef}>
                         Learn more about me
                     </p>
                     <span ref={this.addComponentRef} className="glyphicon glyphicon-chevron-down"/>
