@@ -1,30 +1,30 @@
 /*HEADER*/
 #header {
-  text-align: left;
+  text-align: center;
   color: #fff;
   width: 100vw;
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(http://genkoreanbbq.com/wp-content/uploads/2015/05/mainpic_b1.jpg); }
-  #header .welcome-title {
-    top: 60%;
-    left: 42%;
+  background-image: url(../../public/images/headerBg.jpg); }
+  #header .header-content {
+    top: 30%;
+    left: 50%;
     position: relative;
     overflow: hidden;
-    width: 58%;
-    -webkit-transform: translate(-42%, -60%);
-    -moz-transform: translate(-42%, -60%);
-    -ms-transform: translate(-42%, -60%);
-    -o-transform: translate(-42%, -60%);
-    transform: translate(-42%, -60%); }
-    #header .welcome-title #welcome {
+    width: 50%;
+    -webkit-transform: translate(-50%, -30%);
+    -moz-transform: translate(-50%, -30%);
+    -ms-transform: translate(-50%, -30%);
+    -o-transform: translate(-50%, -30%);
+    transform: translate(-50%, -30%); }
+    #header .header-content #welcome {
       font-family: 'Dancing Script', cursive;
       font-size: 45px;
       color: #c69e5c; }
-    #header .welcome-title #gen {
+    #header .header-content #gen {
       font-size: 60px; }
-    #header .welcome-title #premium {
+    #header .header-content #premium {
       font-size: 30px; }
   #header .learn-more {
     bottom: 0;

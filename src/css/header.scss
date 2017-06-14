@@ -20,16 +20,16 @@ $defaultHeaderWidth: 100vw;
 $defaultHeaderHeight: 100vh;
 
 #header {
-    text-align: left;
+    text-align: center;
     color: $defaultTextColor;
     width: $defaultHeaderWidth;
     height: $defaultHeaderHeight;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url(http://genkoreanbbq.com/wp-content/uploads/2015/05/mainpic_b1.jpg);
+    background-image: url(../../public/images/headerBg.jpg);
 
-    .welcome-title{
-        @include center-align(42%, 60%);
+    .header-content{
+        @include center-align(50%, 30%);
 
         #welcome{
             font-family: 'Dancing Script', cursive;

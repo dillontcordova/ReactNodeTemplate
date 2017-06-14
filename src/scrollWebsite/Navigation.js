@@ -26,7 +26,7 @@ class Navigation extends Component {
 
                         <div id="navHeaderCollapse" className="collapse navbar-collapse">
                             <a onClick={()=>{ this.click('#header') }} >
-                                <img className="home-image" src="http://genkoreanbbq.com/wp-content/uploads/2015/10/logo_w1.png" alt=""/>
+                                <img className="home-image" src="./images/Power-On-Off.png" alt=""/>
                             </a>
 
                             <ul data-toggle="collapse" data-target="#navHeaderCollapse" className="nav navbar-nav navbar-right">

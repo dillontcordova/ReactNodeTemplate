@@ -11,7 +11,8 @@
   #navigation #navHeaderCollapse {
     margin-top: 20px; }
     #navigation #navHeaderCollapse .home-image {
-      width: 13%;
+      width: 5%;
+      opacity: 0.5;
       cursor: pointer; }
     #navigation #navHeaderCollapse button {
       color: #fff; }
