@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import Routes from './routes';
 import './css/defaults.css';
+import './css/parallaxNode.css';
 import './css/navigation.css';
 import './css/header.css';
 import './css/services.css';

@@ -30,18 +30,6 @@ $defaultHeaderHeight: 100vh;
 
     .header-content{
         @include center-align(50%, 30%);
-
-        #welcome{
-            font-family: 'Dancing Script', cursive;
-            font-size: 45px;
-            color: #c69e5c;
-        }
-        #gen{
-            font-size: 60px;
-        }
-        #premium{
-            font-size: 30px;
-        }
     }
 
     .learn-more {
@@ -63,11 +51,6 @@ $defaultHeaderHeight: 100vh;
     #header {
         padding: 30px;
 
-        .summary {
-            margin-top: 50px;
-            text-align: left;
-            font-size: 17px;
-        }
         .learn-more {
             margin-top: 75px;
         }

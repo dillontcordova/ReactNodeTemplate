@@ -18,14 +18,6 @@
     -ms-transform: translate(-50%, -30%);
     -o-transform: translate(-50%, -30%);
     transform: translate(-50%, -30%); }
-    #header .header-content #welcome {
-      font-family: 'Dancing Script', cursive;
-      font-size: 45px;
-      color: #c69e5c; }
-    #header .header-content #gen {
-      font-size: 60px; }
-    #header .header-content #premium {
-      font-size: 30px; }
   #header .learn-more {
     bottom: 0;
     position: absolute;
@@ -40,10 +32,6 @@
 @media (max-width: 768px) {
   #header {
     padding: 30px; }
-    #header .summary {
-      margin-top: 50px;
-      text-align: left;
-      font-size: 17px; }
     #header .learn-more {
       margin-top: 75px; } }
 
