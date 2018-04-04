@@ -1,6 +1,6 @@
 require('import-export');
 require('babel-core/register')({
-    presets: ['es2015', 'react'],
+    presets: ['env', 'react'],
     plugins: ["transform-class-properties"]
 });
 const buildPathName = '../build';

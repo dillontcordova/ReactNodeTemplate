@@ -1,8 +1,8 @@
 /* eslint-disable */
 if(typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
     window.ScrollMagic = require('scrollmagic');
-    require('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js');
-    require('scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js');
+    // require('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js');       //TODO: find fix for Module not found: Error: Cannot resolve module 'TweenMax' in /Users/dcordova/WebstormProjects/Personal/ReactNodeTemplate/node_modules/scrollmagic/scrollmagic/uncompressed/plugins
+    // require('scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js');  //TODO: find fix for Module not found: Error: Cannot resolve module 'TweenMax' in /Users/dcordova/WebstormProjects/Personal/ReactNodeTemplate/node_modules/scrollmagic/scrollmagic/uncompressed/plugins
     require('gsap/src/uncompressed/plugins/ScrollToPlugin');
 }
 
