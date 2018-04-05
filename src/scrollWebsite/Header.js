@@ -43,28 +43,28 @@ class Header extends Component {
                 <div className="header-content">
                     <div className="col-lg-12">
                         <h1 className="title">
-                            Responsive Web Design
+                            Lorem Ipsum Dolor
                         </h1>
                         <p className="summary">
-                            Professional full-stack developer with a strong fluency in Javascript, react, angular,
-                            node, and express. Each endeavor adding to the depth of my skill-set, from converting freelance jobs into a
-                            MERN / MEAN Stack environment, to game engines written in JS / Canvas. Each a stepping stones to the furthering of code innovation.
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.
                         </p>
                     </div>
 
                     <div className="col-lg-12">
                         <img onClick={this.scrollDownToHire} className="hire-me hidden-xs hidden-sm hidden-md" src="/images/team/self.png" alt=""/>
-                        <p className="img-description hidden-xs hidden-sm hidden-md">Wanna hire me?</p>
+                        <p className="img-description hidden-xs hidden-sm hidden-md">Lorem ipsum dolor sit amet</p>
 
                         <div onClick={this.scrollDownToHire} className="hire-me hidden-lg">
-                            <button className="btn btn-info">Wanna hire me?</button>
+                            <button className="btn btn-info">Lorem ipsum dolor sit amet</button>
                         </div>
                     </div>
                 </div>
 
                 <div onClick={this.scrollDown} className="learn-more col-lg-12">
                     <p>
-                        Learn more about me
+                        Ut enim ad minim veniam
                     </p>
                     <span className="glyphicon glyphicon-chevron-down"/>
                 </div>

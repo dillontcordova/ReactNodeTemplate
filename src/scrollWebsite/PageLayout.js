@@ -13,15 +13,15 @@ class PageLayout extends Component {
 
                 <Header />
 
-                <Services />
+                {/*<Services />*/}
 
-                <section id="projects" className="projects" >
-                    <Projects/>
-                </section>
+                {/*<section id="projects" className="projects" >*/}
+                    {/*<Projects/>*/}
+                {/*</section>*/}
 
-                <section id="client" className="clients" >
-                    <Clients/>
-                </section>
+                {/*<section id="client" className="clients" >*/}
+                    {/*<Clients/>*/}
+                {/*</section>*/}
 
                 <section id="contact" className="contact" >
                     <Contact/>

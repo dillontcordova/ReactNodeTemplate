@@ -5,8 +5,12 @@
     background-color: #222222;
 }
 
+#footer h4 {
+    color: white;
+}
+
 #footer .social {
     font-size: 20px;
     padding: 10px;
-    color: antiquewhite;
+    color: #7d74fa;
 }

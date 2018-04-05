@@ -12,12 +12,8 @@ class Footer extends Component {
                     <div className="row">
                         <div className="col-lg-12 col-md-12">
                             <h4>Stay in touch</h4>
-                            <a href="https://www.linkedin.com/in/dilloncordova/">
+                            <a href="https://www.linkedin.com/company/warner-bros--entertainment-group-of-companies">
                                 <i className="social fa fa-linkedin"/>
-                            </a>
-
-                            <a href="https://github.com/dillontcordova/">
-                                <i className="social fa fa-github"/>
                             </a>
                         </div>
                     </div>
