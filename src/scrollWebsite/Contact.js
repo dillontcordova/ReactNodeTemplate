@@ -8,7 +8,6 @@ class Contact extends Component {
     constructor(_props) {
         super(_props);
 
-
         this.state = {
             imageURL: '',
         };
@@ -41,52 +40,18 @@ class Contact extends Component {
         // Magic.tweenStagger(this.componentRefs, 1, {scale: 0.5, opacity: 0, delay: 0.5, ease: 'Elastic.easeOut', force3D: true}, this.triggerElement );
     }
 
-
-
     handleUploadImage = (e) => {
         e.preventDefault();
-
-        // if( this.accessKey.value && this.secretKey.value &&
-        //     this.bucketName.value && this.uploadInput.value ){
-        //
-        //     const S3 = new AWS.S3({
-        //         region: 'us-west-2',
-        //         credentials: {
-        //             accessKeyId: this.accessKey.value,
-        //             secretAccessKey: this.secretKey.value
-        //         }
-        //     });
-        //     const file = this.uploadInput.files[0];
-        //
-        //     if (file) {
-        //         const objKey = file.name;
-        //         const s3Params = {
-        //             Body        : file,
-        //             Key         : objKey,
-        //             ContentType : file.type,
-        //             Bucket      : this.bucketName.value
-        //         };
-        //
-        //         S3.upload( s3Params ).promise()
-        //             .then( (data) => {
-        //                 console.log('UPLOADED!!!');
-        //             })
-        //             .catch((e) => {
-        //                 console.log('LAME!!!');
-        //             })
-        //         ;
-        //     }
-        // }
 
         const file = this.uploadInput.files[0];
         console.log(file);
 
         const data = new FormData();
         data.append('file', file);
-        data.append('secretKey', 'pN6dryzpnH/U1F3Dr6gBSl++r4JSRNSMST6Zk2OE' || this.secretKey.value);
+        data.append('secretKey', this.secretKey.value);
         data.append('fileName', file.name);
-        data.append('bucketName', 'cn-dmz-untrusted' || this.bucketName.value);
-        data.append('accessKey', 'AKIAI5HNPMM6UDFB5IGQ' || this.accessKey.value);
+        data.append('bucketName', this.bucketName.value);
+        data.append('accessKey', this.accessKey.value);
 
         fetch('/upload', {
             method  : 'POST',
