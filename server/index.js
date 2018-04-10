@@ -9,19 +9,18 @@ const path = require('path');
 const express = require('express');
 const fileUpload = require('express-fileupload');
 
-const AWS = require('aws-sdk');
-const fs = require('fs');
+const ReactRender   = require('./ReactRender');
+const s3Upload      = require('./s3Upload');
 
-const ReactRender = require('./ReactRender');
-const bodyParser = require('body-parser'); //allows for POST requests to read passed parament "body" ex: (req.body)
-const staticFiles = [
+const bodyParser    = require('body-parser'); //allows for POST requests to read passed parament "body" ex: (req.body)
+const port          = process.env.PORT || 8080;
+const staticFiles   = [
     '/static/*',
     '/images/*',
     '/logo.svg',
     '/asset-manifest.json',
     '/favicon.ico'
 ];
-
 
 const app = express();
 app.server = http.createServer(app);
@@ -42,57 +41,8 @@ let reactRender = new ReactRender( path.join( __dirname, buildPathName, 'index.h
 //Magic of all react html rendering happens here
 app.get('/', reactRender.HTML);
 
-//adding images for upload
-app.post('/upload', (req, res, next) => {
+//adding files for upload
+app.post('/upload', s3Upload(buildPathName));
 
-    const file      = req.files.file;
-    const filename  = req.body.fileName;
-
-    const urlPath = 'images/' + filename;
-    const nodePath = `${path.join( __dirname, buildPathName, urlPath)}`;
-    console.log(nodePath);
-
-    file.mv(nodePath, function(err) {
-        if (err) {
-            console.log(err);
-            return res.status(500).send(err);
-        }
-
-        const secretKey = req.body.secretKey;
-        const accessKey = req.body.accessKey;
-        const bucketName= req.body.bucketName;
-
-        const S3 = new AWS.S3({
-            region: 'us-west-2',
-            credentials: {
-                accessKeyId: accessKey,
-                secretAccessKey: secretKey
-            }
-        });
-
-        if (file) {
-            const s3Params = {
-                Body        : fs.createReadStream(nodePath),
-                Key         : filename,
-                ContentType : file.type,
-                Bucket      : bucketName
-            };
-
-            S3.putObject( s3Params ).promise()
-                .then( (data) => {
-                    console.log('UPLOADED!!!');
-                    res.json( {file: urlPath} );
-                })
-                .catch((e) => {
-                    console.log(e);
-                    console.log('LAME!!!');
-                    res.json( {file: urlPath} );
-                })
-            ;
-        }
-    });
-
-});
-
-app.server.listen( process.env.PORT || 8080);
+app.server.listen( port );
 console.log( 'listening on http://' + app.server.address().port );

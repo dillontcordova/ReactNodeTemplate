@@ -10,6 +10,7 @@ class Contact extends Component {
 
         this.state = {
             imageURL: '',
+            cypherKey: ''
         };
 
         this.textRefs = [];
@@ -48,24 +49,38 @@ class Contact extends Component {
 
         const data = new FormData();
         data.append('file', file);
-        data.append('secretKey', this.secretKey.value);
         data.append('fileName', file.name);
         data.append('bucketName', this.bucketName.value);
         data.append('accessKey', this.accessKey.value);
+        data.append('secretKey', this.secretKey.value);
 
         fetch('/upload', {
             method  : 'POST',
             body    : data,
         }).then((response) => {
             response.json()
-            .then((body) => {
-                console.log(`http://localhost:8080/${body.file}`);
-                this.setState({ imageURL: `http://localhost:8080/${body.file}` });
-            });
+                .then( (body) => {
+                    console.log(body.cipherKey);
+                    this.setState({
+                        imageURL: body.file,
+                        cypherKey: body.cipherKey
+                    });
+                })
+            ;
         });
     };
 
     render() {
+        const isImage = this.state.imageURL;
+        const responseTag = isImage ? (
+            <div>
+                <p>CypherKey: {this.state.cypherKey}</p>
+                <img src={this.state.imageURL} alt="img" />
+            </div>
+        ): (
+            <div></div>
+        );
+
         return (
             <div ref={this.getTrigger} className="container">
                 <form onSubmit={this.handleUploadImage}>
@@ -84,12 +99,16 @@ class Contact extends Component {
                             <div>
                                 <input ref={(ref) => { this.bucketName = ref; }} type="text" placeholder="Enter the Bucket name Here:" />
                             </div>
+                            <div>
+                                <input ref={(ref) => { this.fileName = ref; }} type="text" placeholder="Enter the Name you want to call the File Here:" />
+                            </div>
                         </div>
 
                         <div>
                             <button>Upload</button>
                         </div>
-                        <img src={this.state.imageURL} alt="img" />
+
+                        {responseTag}
                     </div>
                 </form>
             </div>
