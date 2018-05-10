@@ -26,30 +26,41 @@ module.exports = (buildPathName) => function( req, res, next ){
         }
 
         const kmsParams = {
-            KeyId   : '165fd149-9cf5-41be-9b82-9bab31a50995',
+            KeyId   : 'e7414a88-0ac1-4c2c-96bf-94072033ed78',
             KeySpec : 'AES_256'
         };
         kmsGen( kmsParams, config, (err, kmsData) => {
             if(err){
-                console.log(`kmsErr: ${JSON.stringify(err)}`);
-                res.json( finalResp );
+                const errorMsg = `kmsErr: ${JSON.stringify(err)}`;
+                finalResp.error = errorMsg;
+                console.log( errorMsg );
+                return res.json( finalResp );
             }
 
-            let readStream = fs.createReadStream(nodePath)
+            const hash = crypto.createHash('sha1');
+            hash.setEncoding('hex');
+            fs.createReadStream(nodePath).pipe( hash );
+
+            let encryptStream = fs.createReadStream(nodePath)
                 .pipe( crypto.createCipher('aes-256-cbc', kmsData.plainKey) )
             ;
             const s3Params = {
                 Key     : filename,
-                Body    : readStream,
+                Body    : encryptStream,
                 Bucket  : req.body.bucketName
             };
             s3StreamUpload(s3Params, config, (err, data) => {
+                hash.end();
                 if(err){
-                    console.log(`s3SendErr: ${JSON.stringify(err)}`);
-                    res.json( finalResp );
+                    const errorMsg = `s3SendErr: ${JSON.stringify(err)}`;
+                    finalResp.error = errorMsg;
+                    console.log(errorMsg);
+                    return res.json( finalResp );
                 } else {
-                    console.log(data);
                     finalResp.cipherKey = kmsData.cipherKey;
+                    finalResp.sha1 = hash.read();
+                    console.log(finalResp.sha1);
+
                     res.json( finalResp );
                 }
             });

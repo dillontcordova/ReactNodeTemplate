@@ -4,8 +4,8 @@ module.exports = function kmsGen( kmsParams, config, callback ){
     const KMS = new AWS.KMS( config );
 
     KMS.generateDataKey( kmsParams, (err, dataKey) => {
-        if( err ){
-            return callback(err);
+        if( err || !dataKey.Plaintext ){
+            return callback( err );
         }
         callback( null, {
             plainKey    : dataKey.Plaintext,

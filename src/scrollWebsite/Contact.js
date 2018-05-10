@@ -57,16 +57,16 @@ class Contact extends Component {
         fetch('/upload', {
             method  : 'POST',
             body    : data,
-        }).then((response) => {
+        })
+        .then( (response) => {
             response.json()
-                .then( (body) => {
-                    console.log(body.cipherKey);
-                    this.setState({
-                        imageURL: body.file,
-                        cypherKey: body.cipherKey
-                    });
-                })
-            ;
+            .then( (body) => {
+                console.log(body.cipherKey);
+                this.setState({
+                    imageURL: body.file,
+                    cypherKey: body.error || body.cipherKey
+                });
+            });
         });
     };
 
