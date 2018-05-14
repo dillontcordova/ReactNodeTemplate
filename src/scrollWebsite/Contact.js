@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Auth} from 'aws-amplify';
-import {S3} from 'aws-sdk';
+import s3Upload from '../lib/s3Upload';
 
 
 class Contact extends Component {
@@ -37,67 +36,34 @@ class Contact extends Component {
 
     componentDidMount() {}
 
-    // handleUploadImage = (e) => {
-    //     e.preventDefault();
-    //
-    //     const file = this.uploadInput.files[0];
-    //     console.log(file);
-    //
-    //     const data = new FormData();
-    //     data.append('file', file);
-    //     data.append('fileName', file.name);
-    //     data.append('bucketName', this.bucketName.value);
-    //     data.append('accessKey', this.accessKey.value);
-    //     data.append('secretKey', this.secretKey.value);
-    //
-    //     fetch('/upload', {
-    //         method  : 'POST',
-    //         body    : data,
-    //     })
-    //     .then( (response) => {
-    //         response.json()
-    //         .then( (body) => {
-    //             console.log(body.cipherKey);
-    //             this.setState({
-    //                 imageURL: body.file,
-    //                 cypherKey: body.error || body.cipherKey
-    //             });
-    //         });
-    //     });
-    // };
-
     handleUploadImage = (e) => {
         e.preventDefault();
 
-        // const file = this.uploadInput.files[0];
-        // console.log(file);
-        //
-        // const data = new FormData();
-        // data.append('file', file);
-        // data.append('fileName', file.name);
-        // data.append('bucketName', this.bucketName.value);
+        const file = this.uploadInput.files[0];
+        console.log(file);
 
-        Auth.currentCredentials()
-            .then(credentials => {
-                const s3 = new S3({
-                    credentials: Auth.essentialCredentials(credentials)
-                });
+        const data = new FormData();
+        data.append('file', file);
+        data.append('fileName', file.name);
+        data.append('bucketName', this.bucketName.value);
 
-                const params = {
-                    Bucket: "cn-dmz-untrusted",
-                    Key: "newImg.jpg"
-                };
-                s3.getObject(params, function(err, data) {
-                    if (err) console.log(err, err.stack);
-                    else     console.log(data);
+        fetch('/upload', {
+            method  : 'POST',
+            body    : data,
+        })
+        .then( (response) => {
+            response.json()
+            .then( (body) => {
+                console.log(body.cipherKey);
+                this.setState({
+                    imageURL: body.file,
+                    cypherKey: body.error || body.cipherKey
                 });
-            })
-        ;
+            });
+        });
     };
 
     render() {
-
-
 
         const isImage = this.state.imageURL;
         const responseTag = isImage ? (
@@ -118,12 +84,6 @@ class Contact extends Component {
                         </div>
 
                         <div>
-                            <div>
-                                <input ref={(ref) => { this.accessKey = ref; }} type="text" placeholder="Enter the AccessKey Here:" />
-                            </div>
-                            <div>
-                                <input ref={(ref) => { this.secretKey = ref; }} type="text" placeholder="Enter the SecretKey Here:" />
-                            </div>
                             <div>
                                 <input ref={(ref) => { this.bucketName = ref; }} type="text" placeholder="Enter the Bucket name Here:" />
                             </div>

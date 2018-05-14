@@ -3,7 +3,7 @@ const AWS = require('aws-sdk');
 module.exports = function kmsGen( kmsParams, config, callback ){
     const KMS = new AWS.KMS( config );
 
-    KMS.generateDataKey( kmsParams, (err, dataKey) => {
+    KMS.generateDataKey( kmsParams, function(err, dataKey) {
         if( err || !dataKey.Plaintext ){
             return callback( err );
         }
