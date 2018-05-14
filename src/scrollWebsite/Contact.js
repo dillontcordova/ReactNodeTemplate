@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
-import s3Upload from '../lib/s3Upload';
-
 
 class Contact extends Component {
     constructor(_props) {
         super(_props);
 
         this.state = {
+            dek     : '',
             imageURL: '',
-            cypherKey: ''
+            sha1    : ''
         };
 
         this.textRefs = [];
@@ -43,9 +42,10 @@ class Contact extends Component {
         console.log(file);
 
         const data = new FormData();
-        data.append('file', file);
-        data.append('fileName', file.name);
-        data.append('bucketName', this.bucketName.value);
+        data.append( 'file', file );
+        data.append( 'fileName', file.name );
+        data.append( 'kmsKey', this.kmsKey.value );
+        data.append( 'bucketName', this.bucketName.value );
 
         fetch('/upload', {
             method  : 'POST',
@@ -54,10 +54,11 @@ class Contact extends Component {
         .then( (response) => {
             response.json()
             .then( (body) => {
-                console.log(body.cipherKey);
+                console.log( body.dek );
                 this.setState({
                     imageURL: body.file,
-                    cypherKey: body.error || body.cipherKey
+                    dek     : body.error || body.dek,
+                    sha1    : body.error || body.sha1
                 });
             });
         });
@@ -68,7 +69,8 @@ class Contact extends Component {
         const isImage = this.state.imageURL;
         const responseTag = isImage ? (
             <div>
-                <p>CypherKey: {this.state.cypherKey}</p>
+                <p>DEK: {this.state.dek}</p>
+                <p>Sha1: {this.state.sha1}</p>
                 <img src={this.state.imageURL} alt="img" />
             </div>
         ): (
@@ -84,6 +86,9 @@ class Contact extends Component {
                         </div>
 
                         <div>
+                            <div>
+                                <input ref={(ref) => { this.kmsKey = ref; }} type="text" placeholder="Enter the kms key id Here:" />
+                            </div>
                             <div>
                                 <input ref={(ref) => { this.bucketName = ref; }} type="text" placeholder="Enter the Bucket name Here:" />
                             </div>

@@ -1,80 +1,79 @@
+//TODO: this functionality is to become a lambda that is called through means of an api request.
+
 import {Auth} from "aws-amplify/lib/index";
 
-const kmsGen            = require('./lib/kmsGen');
-const s3StreamUpload    = require('./lib/s3StreamUpload');
-const fs                = require('fs');
-const crypto            = require('crypto');
-const path              = require('path');
+const kmsGen        = require('./lib/kmsGen');
+const s3StreamUpload= require('./lib/s3StreamUpload');
+const fs            = require('fs');
+const crypto        = require('crypto');
+const path          = require('path');
 
 module.exports = (buildPathName) => {
 
     return function (req, res, next) {
         Auth.currentCredentials()
-        .then( (credentials) => {
-            const awsCreds = Auth.essentialCredentials(credentials);
+            .then((credentials) => {
+                const awsCreds  = Auth.essentialCredentials( credentials );
 
-            const file = req.files.file;
-            const filename = req.body.fileName;
-            const urlPath = 'images/' + filename;
-            const nodePath = path.join(__dirname, buildPathName, urlPath);
-            const finalResp = {file: urlPath};
-            const config = {
-                region: 'us-west-2',
-                credentials: {
-                    accessKeyId: 'AKIAIWODZN664AUHH2YA',
-                    secretAccessKey: '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'
-                }
-            };
-
-            console.log(awsCreds);
-
-            file.mv(nodePath, function (err) {
-                if (err) {
-                    console.log(`fileMoveErr: ${JSON.stringify(err)}`);
-                    return res.status(500).send(err);
-                }
-
-                const kmsParams = {
-                    KeyId: 'f8d1ce57-468a-4428-8e92-d4bad7596f1c', //sandboxCognito kms key
-                    KeySpec: 'AES_256'
+                const file      = req.files.file;
+                const filename  = req.body.fileName;
+                const urlPath   = 'images/' + filename;
+                const nodePath  = path.join(__dirname, buildPathName, urlPath);
+                const finalResp = {file: urlPath};
+                const config    = {
+                    region      : 'us-west-2',
+                    credentials : awsCreds
                 };
-                kmsGen(kmsParams, config, (err, kmsData) => {
+
+                file.mv(nodePath, function (err) {
                     if (err) {
-                        const errorMsg = `kmsErr: ${JSON.stringify(err)}`;
-                        finalResp.error = errorMsg;
-                        console.log(errorMsg);
-                        return res.json(finalResp);
+                        console.log(`fileMoveErr: ${JSON.stringify(err)}`);
+                        return res.status(500).send(err);
                     }
 
-                    const hash = crypto.createHash('sha1');
-                    hash.setEncoding('hex');
-                    fs.createReadStream(nodePath).pipe(hash);
-
-                    let encryptStream = fs.createReadStream(nodePath)
-                        .pipe(crypto.createCipher('aes-256-cbc', kmsData.plainKey))
-                    ;
-                    const s3Params = {
-                        Key: filename,
-                        Body: encryptStream,
-                        Bucket: req.body.bucketName
+                    const kmsParams = {
+                        KeyId   : req.body.kmsKey, //sandboxCognito kms key
+                        KeySpec : 'AES_256'
                     };
-                    s3StreamUpload(s3Params, config, (err, data) => {
-                        hash.end();
+                    kmsGen(kmsParams, config, (err, kmsData) => {
                         if (err) {
-                            const errorMsg = `s3SendErr: ${JSON.stringify(err)}`;
+                            const errorMsg = `kmsErr: ${JSON.stringify(err)}`;
                             finalResp.error = errorMsg;
                             console.log(errorMsg);
                             return res.json(finalResp);
-                        } else {
-                            finalResp.cipherKey = kmsData.cipherKey;
-                            finalResp.sha1 = hash.read();
-                            console.log(finalResp.sha1);
-
-                            res.json(finalResp);
                         }
+
+                        const hash = crypto.createHash('sha1');
+                        hash.setEncoding('hex');
+                        fs.createReadStream(nodePath).pipe(hash);
+
+                        let encryptStream = fs.createReadStream(nodePath)
+                            .pipe(crypto.createCipher('aes-256-cbc', kmsData.plainKey))
+                        ;
+
+
+                        const s3Params = {
+                            Key: filename + '.enc',
+                            Body: encryptStream,
+                            Bucket: req.body.bucketName
+                        };
+                        s3StreamUpload(s3Params, config, (err, data) => {
+                            hash.end();
+                            if (err) {
+                                const errorMsg  = `s3SendErr: ${JSON.stringify(err)}`;
+                                finalResp.error = errorMsg;
+                                console.log     ( errorMsg );
+                                return res.json ( finalResp);
+                            } else {
+                                finalResp.dek   = kmsData.cipherKey;
+                                finalResp.sha1  = hash.read();
+                                console.log     ( finalResp.sha1 );
+                                return res.json ( finalResp );
+                            }
+                        });
                     });
                 });
-            });
-        });
+            })
+        ;
     }
 };
