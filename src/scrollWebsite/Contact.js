@@ -1,8 +1,7 @@
-/**
- * Created by dillo_000 on 3/22/2017.
- */
 import React, {Component} from 'react';
-import Magic from '../lib/Magic';
+import {Auth} from 'aws-amplify';
+import {S3} from 'aws-sdk';
+
 
 class Contact extends Component {
     constructor(_props) {
@@ -36,41 +35,70 @@ class Contact extends Component {
         this.componentRefs.push(_ref);
     };
 
-    componentDidMount() {
-        // Magic.tweenFrom(this.textRefs, 1, { opacity: 0, scaleX: -1, y: 500}, this.triggerElement );
-        // Magic.tweenStagger(this.componentRefs, 1, {scale: 0.5, opacity: 0, delay: 0.5, ease: 'Elastic.easeOut', force3D: true}, this.triggerElement );
-    }
+    componentDidMount() {}
+
+    // handleUploadImage = (e) => {
+    //     e.preventDefault();
+    //
+    //     const file = this.uploadInput.files[0];
+    //     console.log(file);
+    //
+    //     const data = new FormData();
+    //     data.append('file', file);
+    //     data.append('fileName', file.name);
+    //     data.append('bucketName', this.bucketName.value);
+    //     data.append('accessKey', this.accessKey.value);
+    //     data.append('secretKey', this.secretKey.value);
+    //
+    //     fetch('/upload', {
+    //         method  : 'POST',
+    //         body    : data,
+    //     })
+    //     .then( (response) => {
+    //         response.json()
+    //         .then( (body) => {
+    //             console.log(body.cipherKey);
+    //             this.setState({
+    //                 imageURL: body.file,
+    //                 cypherKey: body.error || body.cipherKey
+    //             });
+    //         });
+    //     });
+    // };
 
     handleUploadImage = (e) => {
         e.preventDefault();
 
-        const file = this.uploadInput.files[0];
-        console.log(file);
+        // const file = this.uploadInput.files[0];
+        // console.log(file);
+        //
+        // const data = new FormData();
+        // data.append('file', file);
+        // data.append('fileName', file.name);
+        // data.append('bucketName', this.bucketName.value);
 
-        const data = new FormData();
-        data.append('file', file);
-        data.append('fileName', file.name);
-        data.append('bucketName', this.bucketName.value);
-        data.append('accessKey', this.accessKey.value);
-        data.append('secretKey', this.secretKey.value);
-
-        fetch('/upload', {
-            method  : 'POST',
-            body    : data,
-        })
-        .then( (response) => {
-            response.json()
-            .then( (body) => {
-                console.log(body.cipherKey);
-                this.setState({
-                    imageURL: body.file,
-                    cypherKey: body.error || body.cipherKey
+        Auth.currentCredentials()
+            .then(credentials => {
+                const s3 = new S3({
+                    credentials: Auth.essentialCredentials(credentials)
                 });
-            });
-        });
+
+                const params = {
+                    Bucket: "cn-dmz-untrusted",
+                    Key: "newImg.jpg"
+                };
+                s3.getObject(params, function(err, data) {
+                    if (err) console.log(err, err.stack);
+                    else     console.log(data);
+                });
+            })
+        ;
     };
 
     render() {
+
+
+
         const isImage = this.state.imageURL;
         const responseTag = isImage ? (
             <div>
@@ -78,7 +106,7 @@ class Contact extends Component {
                 <img src={this.state.imageURL} alt="img" />
             </div>
         ): (
-            <div></div>
+            <div/>
         );
 
         return (

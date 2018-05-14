@@ -12,6 +12,8 @@
     "node": "^6.10.0"
   },
   "dependencies": {
+    "aws-amplify": "^0.3.3",
+    "aws-amplify-react": "^0.1.43",
     "aws-sdk": "^2.221.1",
     "babel-core": "^6.23.1",
     "babel-plugin-transform-class-properties": "^6.23.0",
