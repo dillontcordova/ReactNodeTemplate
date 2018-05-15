@@ -16,7 +16,7 @@ class ReactRender {
         const renderToString = reactDomServer.renderToString;
         const match = reactRouter.match;
         const RouterContext = reactRouter.RouterContext;
-        const routes = require('../../src/routes').default();
+        const routes = require('../src/routes').default();
 
         const error = () => {
             _response.status(404).send('404')

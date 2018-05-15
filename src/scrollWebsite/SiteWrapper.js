@@ -7,15 +7,8 @@ import Footer from './Footer';
 
 import Amplify, {Auth} from 'aws-amplify';
 import {withAuthenticator} from 'aws-amplify-react';
+import config from '../lib/config';
 
-const config = {
-    aws: {
-        region: 'us-west-2'
-    },
-    userPoolId          : 'us-west-2_IVvBdKOUF',
-    userPoolWebClientId : '5gqs1lqgtff7rh7o6uavr6jkgu',
-    identityPoolId      : 'us-west-2:1b3ceec3-16eb-4d86-bfd9-dd9d3322f53d'
-};
 
 Amplify.configure({
     Auth: {
@@ -28,7 +21,19 @@ Amplify.configure({
 
 
 class SiteWrapper extends Component {
+
     render() {
+
+        //TODO: make render happen afterb this
+        Auth.currentCredentials()
+            .then((credentials) => {
+                console.log();
+                Object.assign( config.aws, {
+                    credentials: Auth.essentialCredentials(credentials)
+                });
+            })
+        ;
+
         return (
             <div>
                 <Navigation />

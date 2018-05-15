@@ -1,6 +1,6 @@
 module.exports = {
     aws: {
-        region: 'us-west-2'
+        region: process.env.REGION || 'us-west-2'
     },
     userPoolId          : process.env.USER_POOL_ID              || 'us-west-2_IVvBdKOUF',
     userPoolWebClientId : process.env.USER_POOL_WEB_CLIENT_ID   || '5gqs1lqgtff7rh7o6uavr6jkgu',

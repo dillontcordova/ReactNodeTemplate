@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import DropDown from '../elementLib/dropDown';
+import config from '../lib/config';
 
 class Contact extends Component {
     constructor(_props) {
@@ -12,6 +13,7 @@ class Contact extends Component {
             menuOptions : []
         };
 
+        this.selectedOption = {};
         this.textRefs = [];
         this.componentRefs = [];
         this.triggerElement = null;
@@ -38,16 +40,14 @@ class Contact extends Component {
     handleUploadImage = (e) => {
         e.preventDefault();
 
-        console.log(`option: ${this.selectedOption && this.selectedOption.value}`);
-
         const file = this.uploadInput.files[0];
-        console.log(file);
 
         const data = new FormData();
         data.append( 'file', file );
         data.append( 'fileName', file.name );
         data.append( 'kmsKey', this.kmsKey.value );
-        data.append( 'bucketName', this.bucketName.value );
+        data.append( 'bucketName', this.selectedOption.value );
+        data.append( 'config', JSON.stringify(config.aws) );
 
         fetch('/upload', {
             method  : 'POST',
@@ -110,14 +110,7 @@ class Contact extends Component {
                                 <input ref={(ref) => { this.kmsKey = ref; }} type="text" placeholder="Enter the kms key id Here:" />
                             </div>
 
-                            <DropDown ref={(ref) => { this.selectedOption = ref; }} options={this.state.menuOptions}/>
-
-                            <div>
-                                <input ref={(ref) => { this.bucketName = ref; }} type="text" placeholder="Enter the Bucket name Here:" />
-                            </div>
-                            <div>
-                                <input ref={(ref) => { this.fileName = ref; }} type="text" placeholder="Enter the Name you want to call the File Here:" />
-                            </div>
+                            <DropDown selectedOption={this.selectedOption} options={this.state.menuOptions}/>
                         </div>
 
                         <div>

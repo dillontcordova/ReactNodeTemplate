@@ -9,9 +9,9 @@ const path          = require('path');
 const express       = require('express');
 const fileUpload    = require('express-fileupload');
 
-const ReactRender   = require('./src/ReactRender');
-const s3Upload      = require('./src/s3Upload');
-const s3List        = require('./src/s3List');
+const ReactRender   = require('./ReactRender');
+const s3Upload      = require('./s3Upload');
+const s3List        = require('./s3List');
 
 const bodyParser    = require('body-parser'); //allows for POST requests to read passed parameter "body" ex: (req.body)
 const port          = process.env.PORT || 8080;
