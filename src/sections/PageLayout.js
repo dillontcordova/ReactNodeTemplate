@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Header from './Header';
-import Contact from './Contact';
+import Contact from '../elementLib/EncryptUploadForm';
 
 class PageLayout extends Component {
 

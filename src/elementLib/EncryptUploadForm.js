@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import DropDown from '../elementLib/dropDown';
+import DropDown from './DropDown';
 import config from '../lib/config';
 
 class Contact extends Component {
@@ -23,14 +23,6 @@ class Contact extends Component {
         let newState = {};
         newState[_e.target.name] = _e.target.value;
         this.setState(newState);
-    };
-
-    getTrigger = (_ref) => {
-        this.triggerElement = _ref;
-    };
-
-    addTextRef = (_ref) => {
-        this.textRefs.push(_ref);
     };
 
     addComponentRef = (_ref) => {
@@ -98,7 +90,7 @@ class Contact extends Component {
         );
 
         return (
-            <div ref={this.getTrigger} className="container">
+            <div id="encryptUploadForm" className="container">
                 <form onSubmit={this.handleUploadImage}>
                     <div ref={this.addComponentRef}>
                         <div>

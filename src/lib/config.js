@@ -1,3 +1,5 @@
+//TODO: take out signup or add mfa, so that this id is no longer a vulnerability
+
 module.exports = {
     aws: {
         region: process.env.REGION || 'us-west-2'

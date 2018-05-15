@@ -2,7 +2,7 @@
  * Created by dillo_000 on 5/19/2017.
  */
 import React, {Component} from 'react';
-import Navigation from './Navigation';
+import Navigation from './Nav';
 import Footer from './Footer';
 
 import Amplify, {Auth} from 'aws-amplify';
@@ -24,7 +24,7 @@ class SiteWrapper extends Component {
 
     render() {
 
-        //TODO: make render happen afterb this
+        //TODO: make render happen after this
         Auth.currentCredentials()
             .then((credentials) => {
                 console.log();
