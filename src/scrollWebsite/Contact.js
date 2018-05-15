@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
+import DropDown from '../elementLib/dropDown';
 
 class Contact extends Component {
     constructor(_props) {
         super(_props);
 
         this.state = {
-            dek     : '',
-            imageURL: '',
-            sha1    : ''
+            dek         : '',
+            imageURL    : '',
+            sha1        : '',
+            menuOptions : []
         };
 
         this.textRefs = [];
@@ -33,10 +35,10 @@ class Contact extends Component {
         this.componentRefs.push(_ref);
     };
 
-    componentDidMount() {}
-
     handleUploadImage = (e) => {
         e.preventDefault();
+
+        console.log(`option: ${this.selectedOption && this.selectedOption.value}`);
 
         const file = this.uploadInput.files[0];
         console.log(file);
@@ -49,7 +51,7 @@ class Contact extends Component {
 
         fetch('/upload', {
             method  : 'POST',
-            body    : data,
+            body    : data
         })
         .then( (response) => {
             response.json()
@@ -64,8 +66,26 @@ class Contact extends Component {
         });
     };
 
-    render() {
+    componentDidMount() {
 
+        fetch('/listBuckets', {
+            method: 'GET'
+        })
+        .then( (response) => {
+            response.json()
+            .then( (body) => {
+                if(body.error || !body.menuOptions){
+                    console.log( body.error || 'listed buckets could not be reached');
+                } else {
+                    this.setState({
+                        menuOptions: body.menuOptions
+                    });
+                }
+            });
+        });
+    }
+
+    render() {
         const isImage = this.state.imageURL;
         const responseTag = isImage ? (
             <div>
@@ -89,6 +109,9 @@ class Contact extends Component {
                             <div>
                                 <input ref={(ref) => { this.kmsKey = ref; }} type="text" placeholder="Enter the kms key id Here:" />
                             </div>
+
+                            <DropDown ref={(ref) => { this.selectedOption = ref; }} options={this.state.menuOptions}/>
+
                             <div>
                                 <input ref={(ref) => { this.bucketName = ref; }} type="text" placeholder="Enter the Bucket name Here:" />
                             </div>

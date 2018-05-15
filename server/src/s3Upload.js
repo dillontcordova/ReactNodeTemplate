@@ -1,9 +1,9 @@
 //TODO: this functionality is to become a lambda that is called through means of an api request.
 
-import {Auth} from "aws-amplify/lib/index";
+import {Auth} from "aws-amplify";
 
-const kmsGen        = require('./lib/kmsGen');
-const s3StreamUpload= require('./lib/s3StreamUpload');
+const kmsGen        = require('../lib/kmsGen');
+const s3StreamUpload= require('../lib/s3StreamUpload');
 const fs            = require('fs');
 const crypto        = require('crypto');
 const path          = require('path');

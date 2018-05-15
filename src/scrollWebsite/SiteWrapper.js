@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import Navigation from './Navigation';
 import Footer from './Footer';
 
-import Amplify from 'aws-amplify';
+import Amplify, {Auth} from 'aws-amplify';
 import {withAuthenticator} from 'aws-amplify-react';
 
 const config = {
