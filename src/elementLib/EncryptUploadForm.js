@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import DropDown from './DropDown';
 import config from '../lib/config';
+import getCreds from "../lib/getCreds";
 
 class Contact extends Component {
     constructor(_props) {
@@ -60,19 +61,26 @@ class Contact extends Component {
 
     componentDidMount() {
 
-        fetch('/listBuckets', {
-            method: 'GET'
-        })
-        .then( (response) => {
-            response.json()
-            .then( (body) => {
-                if(body.error || !body.menuOptions){
-                    console.log( body.error || 'listed buckets could not be reached');
-                } else {
-                    this.setState({
-                        menuOptions: body.menuOptions
-                    });
-                }
+        getCreds((err, awsCfg) => {
+
+            const data = new FormData();
+            data.append( 'config', JSON.stringify(awsCfg) );
+
+            fetch('/listBuckets', {
+                method  : 'POST',
+                body    : data
+            })
+            .then( (response) => {
+                response.json()
+                .then( (body) => {
+                    if(body.error || !body.menuOptions){
+                        console.log( body.error || 'listed buckets could not be reached');
+                    } else {
+                        this.setState({
+                            menuOptions: body.menuOptions
+                        });
+                    }
+                });
             });
         });
     }

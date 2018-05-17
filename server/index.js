@@ -18,7 +18,6 @@ const port          = process.env.PORT || 8080;
 const staticFiles   = [
     '/static/*',
     '/images/*',
-    '/logo.svg',
     '/asset-manifest.json',
     '/favicon.ico'
 ];
@@ -46,7 +45,7 @@ app.get('/', reactRender.HTML);
 app.post('/upload', s3Upload(buildPathName));
 
 //getting a list of all s3 buckets for this user
-app.get('/listBuckets', s3List);
+app.post('/listBuckets', s3List);
 
 app.server.listen( port );
 console.log( 'listening on http://' + app.server.address().port );

@@ -1,8 +1,4 @@
-/**
- * Created by dillo_000 on 3/22/2017.
- */
 import React, {Component} from 'react';
-import Magic from '../lib/Magic';
 
 class Header extends Component {
 
@@ -26,15 +22,12 @@ class Header extends Component {
     };
 
     componentDidMount() {
-        Magic.tweenStagger(['#header', '.header-content'], .25, {opacity: 0, scale: 0.25}, this.triggerElement, .5);
     }
 
     scrollDownToHire = () => {
-        Magic.scrollTo('#contact');
     };
 
     scrollDown = () => {
-        Magic.scrollTo('#services');
     };
 
     render() {

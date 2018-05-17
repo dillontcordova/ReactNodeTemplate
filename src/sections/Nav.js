@@ -2,12 +2,10 @@
  * Created by dillo_000 on 3/22/2017.
  */
 import React, {Component} from 'react';
-import Magic from '../lib/Magic';
 
 class Navigation extends Component {
 
     click = (_href) => {
-        Magic.scrollTo(_href);
         return false;
     };
 

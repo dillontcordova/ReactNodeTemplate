@@ -1,11 +1,8 @@
-/**
- * Created by dillo_000 on 5/19/2017.
- */
 import React, {Component} from 'react';
 import Navigation from './Nav';
 import Footer from './Footer';
 
-import Amplify, {Auth} from 'aws-amplify';
+import Amplify from 'aws-amplify';
 import {withAuthenticator} from 'aws-amplify-react';
 import config from '../lib/config';
 
@@ -22,18 +19,11 @@ Amplify.configure({
 
 class SiteWrapper extends Component {
 
+    constructor(_props) {
+        super(_props);
+    }
+
     render() {
-
-        //TODO: make render happen after this
-        Auth.currentCredentials()
-            .then((credentials) => {
-                console.log();
-                Object.assign( config.aws, {
-                    credentials: Auth.essentialCredentials(credentials)
-                });
-            })
-        ;
-
         return (
             <div>
                 <Navigation />
@@ -46,4 +36,4 @@ class SiteWrapper extends Component {
     }
 }
 
-export default withAuthenticator(SiteWrapper);
+export default withAuthenticator( SiteWrapper );
