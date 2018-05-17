@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Header from './Header';
-import Contact from '../elementLib/EncryptUploadForm';
+import Ingest from '../sections/Ingest';
+import EncryptUploadForm from '../elementLib/EncryptUploadForm';
 
 class PageLayout extends Component {
 
@@ -10,9 +11,11 @@ class PageLayout extends Component {
 
                 <Header />
 
-                <section id="contact" className="contact" >
-                    <Contact/>
-                </section>
+                <Ingest />
+
+                {/*<section id="contact" className="contact" >*/}
+                    {/*<EncryptUploadForm/>*/}
+                {/*</section>*/}
             </div>
         )
     };

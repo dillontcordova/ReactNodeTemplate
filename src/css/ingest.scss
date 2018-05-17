@@ -1,0 +1,12 @@
+#ingest{
+  .panel{
+    .panel-heading{
+      display: flex;
+      justify-content: space-between;
+
+      .removeAsset{
+        color: #fa2d1d;
+      }
+    }
+  }
+}

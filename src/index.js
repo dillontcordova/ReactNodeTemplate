@@ -7,6 +7,7 @@ import './css/parallaxNode.css';
 import './css/navigation.css';
 import './css/header.css';
 import './css/contact.css';
+import './css/ingest.css';
 import './css/footer.css';
 import './css/font-extra/font-mfizz.css';
 

@@ -18,11 +18,6 @@ Amplify.configure({
 
 
 class SiteWrapper extends Component {
-
-    constructor(_props) {
-        super(_props);
-    }
-
     render() {
         return (
             <div>

@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 
 class DropDown extends Component {
-    constructor(_props) {
-        super(_props);
-    }
 
     getOptions = (values) => {
         let options = [];
