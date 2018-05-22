@@ -2,11 +2,7 @@ import React from 'react';
 import { Panel } from 'react-bootstrap';
 import EncryptUploadForm from '../EncryptUploadForm';
 
-export default ({eventKey, style}) => {
-
-    // const handleRemoveAsset = (e, assetNum) => {
-    //     console.log(e.target, assetNum);
-    // };
+export default ({eventKey, style, kmsKey, bucketName}) => {
 
     return (
         <Panel eventKey={eventKey} bsStyle={style}>
@@ -16,7 +12,7 @@ export default ({eventKey, style}) => {
             </Panel.Heading>
 
             <Panel.Body collapsible>
-                <EncryptUploadForm/>
+                <EncryptUploadForm kmsKey={kmsKey} bucketName={bucketName}/>
             </Panel.Body>
         </Panel>
     )

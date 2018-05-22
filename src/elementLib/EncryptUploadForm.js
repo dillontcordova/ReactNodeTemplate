@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import DropDown from './DropDown';
-import config from '../lib/config';
 import getCreds from "../lib/getCreds";
 
 class Contact extends Component {
@@ -10,21 +8,13 @@ class Contact extends Component {
         this.state = {
             dek         : '',
             imageURL    : '',
-            sha1        : '',
-            menuOptions : []
+            sha1        : ''
         };
 
-        this.selectedOption = {};
         this.textRefs = [];
         this.componentRefs = [];
         this.triggerElement = null;
     }
-
-    onChange = (_e) => {
-        let newState = {};
-        newState[_e.target.name] = _e.target.value;
-        this.setState(newState);
-    };
 
     addComponentRef = (_ref) => {
         this.componentRefs.push(_ref);
@@ -38,52 +28,29 @@ class Contact extends Component {
         const data = new FormData();
         data.append( 'file', file );
         data.append( 'fileName', file.name );
-        data.append( 'kmsKey', this.kmsKey.value );
-        data.append( 'bucketName', this.selectedOption.value );
-        data.append( 'config', JSON.stringify(config.aws) );
-
-        fetch('/upload', {
-            method  : 'POST',
-            body    : data
-        })
-        .then( (response) => {
-            response.json()
-            .then( (body) => {
-                console.log( body.dek );
-                this.setState({
-                    imageURL: body.file,
-                    dek     : body.error || body.dek,
-                    sha1    : body.error || body.sha1
-                });
-            });
-        });
-    };
-
-    componentDidMount() {
+        data.append( 'kmsKey', this.props.kmsKey );
+        data.append( 'bucketName', this.props.bucketName );
 
         getCreds((err, awsCfg) => {
-
-            const data = new FormData();
             data.append( 'config', JSON.stringify(awsCfg) );
 
-            fetch('/listBuckets', {
+            fetch('/upload', {
                 method  : 'POST',
                 body    : data
             })
             .then( (response) => {
                 response.json()
                 .then( (body) => {
-                    if(body.error || !body.menuOptions){
-                        console.log( body.error || 'listed buckets could not be reached');
-                    } else {
-                        this.setState({
-                            menuOptions: body.menuOptions
-                        });
-                    }
+                    console.log( body.dek );
+                    this.setState({
+                        imageURL: body.file,
+                        dek     : body.error || body.dek,
+                        sha1    : body.error || body.sha1
+                    });
                 });
             });
         });
-    }
+    };
 
     render() {
         const isImage = this.state.imageURL;
@@ -105,17 +72,7 @@ class Contact extends Component {
                             <input type="file" ref={(ref) => { this.uploadInput = ref; }} />
                         </div>
 
-                        <div>
-                            <div>
-                                <input ref={(ref) => { this.kmsKey = ref; }} type="text" placeholder="Enter the kms key id Here:" />
-                            </div>
-
-                            <DropDown selectedOption={this.selectedOption} options={this.state.menuOptions}/>
-                        </div>
-
-                        <div>
-                            <button>Upload</button>
-                        </div>
+                        <button>Upload</button>
 
                         {responseTag}
                     </div>

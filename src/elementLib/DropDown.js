@@ -9,19 +9,12 @@ class DropDown extends Component {
             options.push(<option value={val}>{val}</option>);
         });
 
-        this.props.selectedOption.value = this.props.selectedOption.value || (values && values[0]);
         return options || <option value="undefined">undefined</option>;
     };
 
-    handleChange = (e) => {
-        this.props.selectedOption.value = e.target.value;
-    };
-
-    componentDidMount() {}
-
     render() {
         return (
-            <select value={this.props.selectedOption.value} onChange={this.handleChange}>
+            <select onChange={this.props.optionSelect}>
                 {this.getOptions( this.props.options )}
             </select>
         );

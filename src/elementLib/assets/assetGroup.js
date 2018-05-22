@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { PanelGroup, Button } from 'react-bootstrap';
-import Asset from '../../elementLib/assets/asset';
+import { PanelGroup, Panel, Button } from 'react-bootstrap';
+import EncryptUploadForm from '../../elementLib/EncryptUploadForm';
 
 
 class assetGroup extends Component {
@@ -14,15 +14,11 @@ class assetGroup extends Component {
         };
     }
 
-    handleToggleSelect = (activeKey) => {
-        this.setState({ activeKey: activeKey });
-    };
-
     handleAddAsset = (e) => {
         const assets = this.state.assets;
         this.setState({
-            assets: assets.concat( <Asset key={assets.length} eventKey={assets.length} style="danger"/> ),
-            activeKey: assets.length
+            activeKey   : assets.length,
+            assets      : assets.concat( this.createAsset(assets.length, 'danger') )
         });
     };
 
@@ -34,13 +30,33 @@ class assetGroup extends Component {
         });
     };
 
+    handleSelect = (activeKey) => {
+        this.setState({ activeKey });
+    };
+
+    createAsset = (key, style) => {
+
+        return (
+            <Panel key={key} eventKey={key} bsStyle={style}>
+                <Panel.Heading>
+                    <Panel.Title toggle>Asset {key}</Panel.Title>
+                    {/*<Button className="removeAsset" onClick={(e)=>{handleRemoveAsset(e, eventKey)}}> remove </Button>*/}
+                </Panel.Heading>
+
+                <Panel.Body collapsible>
+                    <EncryptUploadForm kmsKey={this.props.kmsKey} bucketName={this.props.bucketName}/>
+                </Panel.Body>
+            </Panel>
+        )
+    };
+
     render() {
         return (
             <PanelGroup
                 accordion
                 id="accordion-controlled-example"
                 activeKey={this.state.activeKey}
-                onSelect={this.handleToggleSelect}
+                onSelect={this.handleSelect}
             >
                 {this.state.assets}
 
