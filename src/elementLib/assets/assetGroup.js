@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { PanelGroup, Panel, Button } from 'react-bootstrap';
+import { Form, FormControl, FormGroup, ControlLabel, Col, InputGroup, PanelGroup, Panel, Button } from 'react-bootstrap';
 import EncryptUploadForm from '../../elementLib/EncryptUploadForm';
 
 
@@ -34,16 +34,59 @@ class assetGroup extends Component {
         this.setState({ activeKey });
     };
 
+    asd = () => {
+        const asdn = (ref) => {
+            console.log(ref.checkValidity());
+            // const isFormValid = !ref.props.children.some((formGroup)=>{
+            //     return formGroup.props.validationState !== 'success';
+            // });
+            //
+            // console.log(isFormValid);
+        };
+
+        return (
+            <form ref={asdn} >
+                <Form componentClass="fieldset" horizontal>
+                    <FormGroup controlId="formValidationError3" validationState="success">
+                        <Col componentClass={ControlLabel} xs={3}>
+                            Input with error
+                        </Col>
+                        <Col xs={9}>
+                            <InputGroup>
+                                <InputGroup.Addon>...</InputGroup.Addon>
+                                <FormControl type="text" />
+                            </InputGroup>
+                            <FormControl.Feedback />
+                        </Col>
+                    </FormGroup>
+
+                    <FormGroup controlId="formValidationSuccess4" validationState="error">
+                        <Col componentClass={ControlLabel} xs={3}>
+                            Input group with success
+                        </Col>
+                        <Col xs={9}>
+                            <InputGroup>
+                                <InputGroup.Addon>@</InputGroup.Addon>
+                                <FormControl type="text" />
+                            </InputGroup>
+                            <FormControl.Feedback />
+                        </Col>
+                    </FormGroup>
+                </Form>
+            </form>
+        );
+    };
+
+
     createAsset = (key, style) => {
 
         return (
             <Panel key={key} eventKey={key} bsStyle={style}>
                 <Panel.Heading>
                     <Panel.Title toggle>Asset {key}</Panel.Title>
-                    {/*<Button className="removeAsset" onClick={(e)=>{handleRemoveAsset(e, eventKey)}}> remove </Button>*/}
                 </Panel.Heading>
-
                 <Panel.Body collapsible>
+                    {this.asd()}
                     <EncryptUploadForm kmsKey={this.props.kmsKey} bucketName={this.props.bucketName}/>
                 </Panel.Body>
             </Panel>
