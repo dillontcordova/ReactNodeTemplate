@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEI,6BAAc;EACZ,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAAa;EAE9B,0CAAY;IACV,KAAK,EAAE,OAAO",
+"sources": ["ingest.scss"],
+"names": [],
+"file": "ingest.css"
+}

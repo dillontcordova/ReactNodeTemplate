@@ -1,0 +1,7 @@
+#ingest .panel .panel-heading {
+  display: flex;
+  justify-content: space-between; }
+  #ingest .panel .panel-heading .removeAsset {
+    color: #fa2d1d; }
+
+/*# sourceMappingURL=ingest.css.map */

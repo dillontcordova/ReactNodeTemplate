@@ -4,18 +4,17 @@
 import React from 'react';
 import {Router, Route, browserHistory, IndexRedirect, IndexRoute} from 'react-router';
 import SiteWrapper from './sections/SiteWrapper';
-import PageLayout from './sections/PageLayout';
+import HomePage from './pages/HomePage';
 
 const Routes = (props) => {
     return (
         <Router history={browserHistory}>
             <Route path="/" component={SiteWrapper}> {/*  <Route path="/" ...  is shown on every page*/}
-                <IndexRoute component={PageLayout}/> {/* "IndexRoute" is the home page*/}
-                {/*<Route path="/custom" component={Custom}/>*/}
+                <IndexRoute component={HomePage}/> {/* "IndexRoute" is the home page*/}
             </Route>
 
-            <Route path="*"> {/* 404..when no other route is met, it enters here specified by "*" */}
-                <IndexRedirect to="/"/> {/* redirects page to home page specified by " to='/' " */}
+            <Route path="*"> {/* 404 */}
+                <IndexRedirect to="/"/> {/* redirects page to homepage" to='/' " */}
             </Route>
         </Router>
     );

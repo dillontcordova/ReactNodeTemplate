@@ -32,8 +32,8 @@
   "scripts": {
     "eject": "react-scripts eject",
     "build": "react-scripts build",
-    "dev": "set NODE_ENV=dev&& react-scripts start",
-    "prod": "set NODE_ENV=prod&& node server/",
+    "dev": "set NODE_ENV=dev && react-scripts start",
+    "prod": "set NODE_ENV=prod && node server/",
     "start": "npm run build && npm run prod"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",

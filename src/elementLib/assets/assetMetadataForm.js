@@ -1,61 +1,110 @@
-import React from 'react';
-import EncryptUploadForm from '../EncryptUploadForm';
-import { Form, FormControl, FormGroup, ControlLabel, Col, InputGroup, Panel } from 'react-bootstrap';
+import React, {Component} from 'react';
+import { Form, FormControl, FormGroup, ControlLabel, Col, InputGroup, Button } from 'react-bootstrap';
 
-const metadataForm = () => {
-    const getRef = (ref) => {
-        // console.log(ref.checkValidity());
-        const isFormValid = !ref.props.children.some((formGroup) => {
-            return formGroup.props.validationState !== 'success';
-        });
+export default class metadataForm extends Component {
+    constructor(props, context) {
+        super(props, context);
 
-        console.log( isFormValid );
+        this.state = {
+            sourceSystemId  : '',
+            metadata        : {},
+            titleIds        : {
+                editEidr: '',
+                mpm     : ''
+            },
+
+            validators: {
+                sourceSystemId: val => !!val.match('[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}')
+            }
+        };
+    }
+
+
+
+    validateFullForm = ( e ) => {
+        e.preventDefault();
+        debugger;
+        // const isFormValid = formRef && !formRef.props.children.some((formGroup) => {
+        //     return formGroup.props.validationState !== 'success';
+        // });
+        //
+        // console.log( isFormValid );
     };
 
-    return (
-        <form >
-            <Form ref={getRef} componentClass="fieldset" horizontal>
-                <FormGroup controlId="formValidationError3" validationState="success">
-                    <Col componentClass={ControlLabel} xs={3}>
-                        Input with error
-                    </Col>
-                    <Col xs={9}>
-                        <InputGroup>
-                            <InputGroup.Addon>...</InputGroup.Addon>
-                            <FormControl type="text" />
-                        </InputGroup>
-                        <FormControl.Feedback />
-                    </Col>
-                </FormGroup>
+    validateFormGroup = ( val ) => {
+        return !!val ? 'success': 'error';
+    };
 
-                <FormGroup controlId="formValidationSuccess4" validationState="error">
-                    <Col componentClass={ControlLabel} xs={3}>
-                        Input group with success
-                    </Col>
-                    <Col xs={9}>
-                        <InputGroup>
-                            <InputGroup.Addon>@</InputGroup.Addon>
-                            <FormControl type="text" />
-                        </InputGroup>
-                        <FormControl.Feedback />
-                    </Col>
-                </FormGroup>
-            </Form>
-        </form>
-    );
-};
+    onChange = ( e ) => {
+        const target    = e.target;
+        const value     = this.state.validators[target.id]( target.value );
 
+        this.setState({
+            [target.id]: value
+        });
+    };
 
-export default ({key, style, kmsKey, bucketName}) => {
-    return (
-        <Panel key={key} eventKey={key} bsStyle={style}>
-            <Panel.Heading>
-                <Panel.Title toggle>Asset {key}</Panel.Title>
-            </Panel.Heading>
-            <Panel.Body collapsible>
-                {metadataForm()}
-                <EncryptUploadForm kmsKey={kmsKey} bucketName={bucketName}/>
-            </Panel.Body>
-        </Panel>
-    )
+    render() {
+        return (
+            <form onSubmit={this.validateFullForm}>
+                <Form componentClass="fieldset" horizontal>
+                    <FormGroup validationState={this.validateFormGroup( this.state.sourceSystemId )}>
+                        <Col componentClass={ControlLabel} xs={3}>
+                            Source System Id:
+                        </Col>
+                        <Col xs={9}>
+                            <InputGroup>
+                                <InputGroup.Addon>...</InputGroup.Addon>
+                                <FormControl
+                                    id="sourceSystemId"
+                                    type="text"
+                                    placeholder="Enter text"
+                                    onChange={this.onChange}
+                                />
+                            </InputGroup>
+                            <FormControl.Feedback />
+                        </Col>
+                    </FormGroup>
+
+                    <FormGroup validationState={this.validateFormGroup( this.state.titleIds.mpm )}>
+                        <Col componentClass={ControlLabel} xs={3}>
+                            Title Id's:
+                        </Col>
+                        <Col xs={9}>
+                            <InputGroup>
+                                <InputGroup.Addon>@</InputGroup.Addon>
+                                <FormControl
+                                    id="titleIds.mpm"
+                                    type="text"
+                                    placeholder="Enter text"
+                                    onChange={this.onChange}
+                                />
+                            </InputGroup>
+                            <FormControl.Feedback />
+                        </Col>
+                    </FormGroup>
+
+                    <FormGroup validationState={this.validateFormGroup( this.state.titleIds.editEidr )}>
+                        <Col componentClass={ControlLabel} xs={3}>
+                            Edit Eidr:
+                        </Col>
+                        <Col xs={9}>
+                            <InputGroup>
+                                <InputGroup.Addon>@</InputGroup.Addon>
+                                <FormControl
+                                    id="titleIds.editEidr"
+                                    type="text"
+                                    placeholder="Enter text"
+                                    onChange={this.onChange}
+                                />
+                            </InputGroup>
+                            <FormControl.Feedback />
+                        </Col>
+                    </FormGroup>
+
+                    <Button type="submit">Submit</Button>
+                </Form>
+            </form>
+        );
+    }
 }

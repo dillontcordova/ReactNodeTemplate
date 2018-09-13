@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import { Form, FormControl, FormGroup, ControlLabel, Col, InputGroup, PanelGroup, Panel, Button } from 'react-bootstrap';
+import { PanelGroup, Panel, Button } from 'react-bootstrap';
+import AssetMetadataForm from './assetMetadataForm';
 import EncryptUploadForm from '../../elementLib/EncryptUploadForm';
 
 
@@ -26,7 +27,8 @@ class assetGroup extends Component {
         const assets = this.state.assets;
         assets.pop();
         this.setState({
-            assets: assets
+            activeKey   : assets.length-1,
+            assets      : assets
         });
     };
 
@@ -34,59 +36,14 @@ class assetGroup extends Component {
         this.setState({ activeKey });
     };
 
-    asd = () => {
-        const asdn = (ref) => {
-            console.log(ref.checkValidity());
-            // const isFormValid = !ref.props.children.some((formGroup)=>{
-            //     return formGroup.props.validationState !== 'success';
-            // });
-            //
-            // console.log(isFormValid);
-        };
-
-        return (
-            <form ref={asdn} >
-                <Form componentClass="fieldset" horizontal>
-                    <FormGroup controlId="formValidationError3" validationState="success">
-                        <Col componentClass={ControlLabel} xs={3}>
-                            Input with error
-                        </Col>
-                        <Col xs={9}>
-                            <InputGroup>
-                                <InputGroup.Addon>...</InputGroup.Addon>
-                                <FormControl type="text" />
-                            </InputGroup>
-                            <FormControl.Feedback />
-                        </Col>
-                    </FormGroup>
-
-                    <FormGroup controlId="formValidationSuccess4" validationState="error">
-                        <Col componentClass={ControlLabel} xs={3}>
-                            Input group with success
-                        </Col>
-                        <Col xs={9}>
-                            <InputGroup>
-                                <InputGroup.Addon>@</InputGroup.Addon>
-                                <FormControl type="text" />
-                            </InputGroup>
-                            <FormControl.Feedback />
-                        </Col>
-                    </FormGroup>
-                </Form>
-            </form>
-        );
-    };
-
-
     createAsset = (key, style) => {
-
         return (
             <Panel key={key} eventKey={key} bsStyle={style}>
                 <Panel.Heading>
                     <Panel.Title toggle>Asset {key}</Panel.Title>
                 </Panel.Heading>
                 <Panel.Body collapsible>
-                    {this.asd()}
+                    <AssetMetadataForm/>
                     <EncryptUploadForm kmsKey={this.props.kmsKey} bucketName={this.props.bucketName}/>
                 </Panel.Body>
             </Panel>

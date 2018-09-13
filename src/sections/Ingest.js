@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import AssetGroup from '../elementLib/assets/assetGroup';
-// import { Dropdown } from 'react-bootstrap';
 import DropDown from '../elementLib/DropDown';
 import getCreds from "../lib/getCreds";
 
